@@ -1,4 +1,4 @@
-import styles from '../styles/AboutPage.module.css';
+//import styles from '../styles/AboutPage.module.css';
 
 import rui from '../assets/rui.png';
 import diego from '../assets/diego.png';
