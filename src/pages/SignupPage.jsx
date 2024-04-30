@@ -4,12 +4,11 @@ import { useNavigate } from 'react-router-dom'
 const SignupPage = () => {
   const navigate = useNavigate()
 
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleSubmit = async event => {
-    event.preventDefault()
-    console.log(username, password)
+    event.preventDefault();
 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/signup`, {
@@ -17,25 +16,26 @@ const SignupPage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
-      })
+        body: JSON.stringify({ email, password }), // Sending email instead of username
+      });
+
       if (response.status === 201) {
-        const newUser = await response.json()
-        console.log(newUser)
-        navigate('/login')
+        navigate('/login');
+      } else {
+        console.error('Failed to sign up:', response.statusText);
       }
     } catch (error) {
-      console.log(error)
+      console.error('Failed to sign up:', error.message);
     }
-  }
+  };
 
   return (
     <>
-      <h1>Signup</h1>
+      <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Username
-          <input value={username} onChange={event => setUsername(event.target.value)} required />
+          Email
+          <input value={email} onChange={event => setEmail(event.target.value)} required type="email" />
         </label>
         <label>
           Password
@@ -49,7 +49,7 @@ const SignupPage = () => {
         <button type='submit'>Sign Up</button>
       </form>
     </>
-  )
-}
+  );
+};
 
 export default SignupPage

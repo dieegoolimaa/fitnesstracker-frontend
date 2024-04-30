@@ -12,7 +12,7 @@ const NewExercisePage = () => {
 
   const handleSubmit = async event => {
     event.preventDefault()
-    const payload = { name, description, category, duration, targetMuscle }
+    const payload = { name, description, category, duration, target_muscle: targetMuscle }
 
     withToken('/exercises', 'POST', payload)
   }
