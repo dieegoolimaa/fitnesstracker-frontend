@@ -25,6 +25,7 @@ const LoginPage = () => {
       if (response.status === 200) {
         const parsed = await response.json();
         setToken(parsed.token);
+        localStorage.setItem('authToken', parsed.token); // Store token in localStorage
         navigate('/profile');
       } else {
         console.error('Failed to log in:', response.statusText);

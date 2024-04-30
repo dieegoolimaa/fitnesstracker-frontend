@@ -1,0 +1,37 @@
+/* Container */
+.signup-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Form */
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Form label */
+  .signup-form label {
+    margin-bottom: 10px;
+  }
+  
+  /* Form input */
+  .signup-form input {
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Button */
+  .signup-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Button hover */
+  .signup-form button:hover {
+    background-color: #0056b3;
+  }
+  
