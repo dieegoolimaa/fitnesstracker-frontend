@@ -6,7 +6,7 @@ import  ProfilePage  from './pages/ProfilePage.jsx'
 import PrivateRoute from './components/PrivateRoute.jsx'
 import  AllExercisesPage  from './pages/AllExercisesPage.jsx'
 import  NewExercisePage  from './pages/NewExercisePage.jsx'
-
+import  AboutPage from './pages/AboutPage.jsx'
 function App() {
   return (
    <>
@@ -15,6 +15,8 @@ function App() {
     <Route path='/' element={<h1>Home page</h1>} />
     <Route path='/signup' element={<SignupPage />} />
     <Route path='/login' element={<LoginPage />} />
+    <Route path='/about' element={<AboutPage />} />
+
     <Route
       path='/profile'
       element={
