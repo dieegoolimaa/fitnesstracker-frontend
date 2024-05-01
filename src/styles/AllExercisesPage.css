@@ -1,0 +1,33 @@
+/* AllExercisesPage.css */
+
+.exercise-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Align items horizontally center */
+  background-color: rgb(63, 61, 61);
+  color: aliceblue; /* Set text color */
+}
+
+.exercise-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  background-color: #f35a01;
+  border: 1px solid #000000;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s; /* Add transition effect for smoother hover */
+}
+
+.exercise-box:hover {
+  background-color: #f89d69; /* Change background color on hover */
+}
+
+.exercise-box h2 {
+  margin-top: 0;
+  text-align: center; /* Center text horizontally */
+}
+
+  

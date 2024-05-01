@@ -7,7 +7,7 @@ import PrivateRoute from './components/PrivateRoute.jsx'
 import  AllExercisesPage  from './pages/AllExercisesPage.jsx'
 import  NewExercisePage  from './pages/NewExercisePage.jsx'
 import  AboutPage from './pages/AboutPage.jsx'
-
+import  ExercisesDetailsPage from './pages/ExercisesDetailsPage.jsx'
 function App() {
   return (
    <>
@@ -27,6 +27,7 @@ function App() {
       }
     />
     <Route path='/exercises' element={<AllExercisesPage />} />
+    <Route path="/exercises/:id" element={<ExercisesDetailsPage />} />
     <Route
       path='/exercises/new'
       element={
