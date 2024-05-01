@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext";
-import { useContext } from "react";
+import "../styles/Navbar.css"; // Import your CSS file
+
 const Navbar = () => {
   const { token, logout } = useContext(SessionContext)
 
   return (
-    <nav>
+    <nav className="navbar-vertical">
       <ul>
         <li>
           <Link to='/'>Home</Link>
@@ -37,7 +38,8 @@ const Navbar = () => {
           <Link to='/exercises'>All exercises</Link>
         </li>
         <li>
-        <Link to='/about'>About</Link></li>
+          <Link to='/about'>About</Link>
+        </li>
       </ul>
     </nav>
   )
