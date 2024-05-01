@@ -1,0 +1,70 @@
+/* AboutPage.module.css */
+
+.rui {
+  background-image: url("../assets/rui.png");
+}
+
+.diego {
+  background-image: url("../assets/diego.png");
+}
+
+.kivanc {
+  background-image: url("../assets/Kivanc.png");
+}
+
+.aboutPage {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.aboutPage h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.aboutPage p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.team-member {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.member-info {
+  flex: 1;
+}
+
+.member-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.member-info p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.member-info a {
+  color: #007bff; /* Bootstrap's primary color */
+}
+
+.member-info a:hover {
+  text-decoration: underline;
+}
+
+.team-member img {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+  border-radius: 50%; /* Makes the image round */
+  margin-right: 20px;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+}
