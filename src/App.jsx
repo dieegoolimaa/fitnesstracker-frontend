@@ -1,13 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import SignupPage from "./pages/SignupPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-import Navbar from "./components/navbar.jsx";
+import Navbar from "./components/Navbar.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import AllExercisesPage from "./pages/AllExercisesPage.jsx";
 import NewExercisePage from "./pages/NewExercisePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import "./App.css";
 
 function App() {
   return (

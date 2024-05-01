@@ -1,0 +1,7 @@
+.login-container {
+  border: 0.5px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+}

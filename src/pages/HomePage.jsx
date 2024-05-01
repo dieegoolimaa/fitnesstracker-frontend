@@ -3,17 +3,18 @@ function HomePage() {
   const youtubeUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=0`;
 
   return (
-    <div className="home">
+    <div>
       {/* Other home component content */}
-      <iframe
-        width="1000"
-        height="815"
-        src={youtubeUrl}
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-        allowfullscreen
-      ></iframe>
+      <div>
+        <iframe
+          width="100%"
+          height="875px"
+          src={youtubeUrl}
+          frameBorder="0"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        ></iframe>
+      </div>
     </div>
   );
 }

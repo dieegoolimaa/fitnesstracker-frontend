@@ -1,67 +1,68 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { TextInput, Checkbox, NumberInput, Select } from '@mantine/core';
-import styles from '../styles/SignupPage.module.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { TextInput, Checkbox, NumberInput, Select } from "@mantine/core";
 
 const SignupPage = () => {
   const navigate = useNavigate();
-
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isInstructor, setIsInstructor] = useState(false);
-  const [age, setAge] = useState('');
-  const [gender, setGender] = useState('');
-  const [height, setHeight] = useState('');
-  const [weight, setWeight] = useState('');
-  const [workoutFrequency, setWorkoutFrequency] = useState('');
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
+  const [workoutFrequency, setWorkoutFrequency] = useState("");
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/signup`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          isInstructor,
-          age,
-          gender,
-          height,
-          weight,
-          workoutFrequency
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/auth/signup`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+            isInstructor,
+            age,
+            gender,
+            height,
+            weight,
+            workoutFrequency,
+          }),
+        }
+      );
 
       if (response.status === 201) {
-        navigate('/login');
+        navigate("/login");
       } else {
-        console.error('Failed to sign up:', response.statusText);
+        console.error("Failed to sign up:", response.statusText);
       }
     } catch (error) {
-      console.error('Failed to sign up:', error.message);
+      console.error("Failed to sign up:", error.message);
     }
   };
 
   return (
-    <div className={styles.signupContainer}>
+    <div>
       <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit} className={styles.signupForm}>
+      <form onSubmit={handleSubmit}>
         <TextInput
           label="Name"
           value={name}
-          onChange={event => setName(event.target.value)}
+          onChange={(event) => setName(event.target.value)}
           placeholder="Enter your name"
         />
         <TextInput
           label="Email"
           value={email}
-          onChange={event => setEmail(event.target.value)}
+          onChange={(event) => setEmail(event.target.value)}
           required
           placeholder="Enter your email"
           autoComplete="email"
@@ -69,7 +70,7 @@ const SignupPage = () => {
         <TextInput
           label="Password"
           value={password}
-          onChange={event => setPassword(event.target.value)}
+          onChange={(event) => setPassword(event.target.value)}
           required
           type="password"
           placeholder="Enter your password"
@@ -92,7 +93,7 @@ const SignupPage = () => {
           value={gender}
           onChange={setGender}
           placeholder="Select your gender"
-          data={['', 'male', 'female', 'other']}
+          data={["", "male", "female", "other"]}
         />
         <NumberInput
           label="Height"
@@ -113,9 +114,9 @@ const SignupPage = () => {
           value={workoutFrequency}
           onChange={setWorkoutFrequency}
           placeholder="Select your workout frequency"
-          data={['', 'daily', 'weekly', 'monthly']}
+          data={["", "daily", "weekly", "monthly"]}
         />
-        <button type='submit'>Sign Up</button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );
