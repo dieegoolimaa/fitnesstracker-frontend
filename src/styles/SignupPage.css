@@ -1,15 +1,16 @@
 .signup-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 500px;
 }
 
-/* .signup-container label {
+.signup-container label {
   margin-bottom: 10px;
 }
 
 .signup-container input {
   padding: 8px;
   margin-bottom: 20px;
-} */
+}
