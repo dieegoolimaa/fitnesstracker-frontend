@@ -18,6 +18,7 @@ const ProfilePage = () => {
         });
         if (response.ok) {
           const data = await response.json();
+          console.log(data); // Add this line
           setUserData(data);
         } else {
           console.error('Failed to fetch user data:', response.statusText);
@@ -39,7 +40,10 @@ const ProfilePage = () => {
           <li>Email: {userData.email}</li>
           <li>Age: {userData.age}</li>
           <li>Gender: {userData.gender}</li>
-          {/* Add other fields as needed */}
+          <li>Height: {userData.height}</li>
+          <li>Weight: {userData.weight}</li>
+          <li>Workout Frequency: {userData.workoutFrequency}</li>
+          {userData.isInstructor && <li>Is Instructor: Yes</li>}
         </ul>
       )}
     </>

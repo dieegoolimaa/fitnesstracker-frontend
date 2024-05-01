@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextInput, Checkbox, NumberInput, Select } from '@mantine/core';
 import styles from '../styles/SignupPage.module.css';
@@ -6,6 +6,7 @@ import styles from '../styles/SignupPage.module.css';
 const SignupPage = () => {
   const navigate = useNavigate();
 
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isInstructor, setIsInstructor] = useState(false);
@@ -25,6 +26,7 @@ const SignupPage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          name,
           email,
           password,
           isInstructor,
@@ -50,6 +52,12 @@ const SignupPage = () => {
     <div className={styles.signupContainer}>
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit} className={styles.signupForm}>
+        <TextInput
+          label="Name"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          placeholder="Enter your name"
+        />
         <TextInput
           label="Email"
           value={email}
@@ -114,4 +122,3 @@ const SignupPage = () => {
 };
 
 export default SignupPage;
-

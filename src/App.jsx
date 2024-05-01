@@ -7,6 +7,7 @@ import PrivateRoute from './components/PrivateRoute.jsx'
 import  AllExercisesPage  from './pages/AllExercisesPage.jsx'
 import  NewExercisePage  from './pages/NewExercisePage.jsx'
 import  AboutPage from './pages/AboutPage.jsx'
+
 function App() {
   return (
    <>
