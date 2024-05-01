@@ -3,9 +3,12 @@ import kivanc from "../assets/kivanc.png";
 import rui from "../assets/rui.png";
 import diego from "../assets/diego.png";
 
-const TeamMember = ({ name, role, github, linkedin, imageUrl }) => (
+const TeamMember = ({ name, role, github, linkedin, image }) => (
   <div className="team-member">
     <div className="member-info">
+      <div className="member-image">
+        <img src={image} />
+      </div>
       <h3>{name}</h3>
       <p>
         <strong>Role:</strong> {role}
@@ -19,9 +22,6 @@ const TeamMember = ({ name, role, github, linkedin, imageUrl }) => (
           LinkedIn
         </a>
       </p>
-    </div>
-    <div>
-      <img src={imageUrl} alt="Team member photo" />
     </div>
   </div>
 );
@@ -40,7 +40,6 @@ const AboutPage = () => {
         on endless adventures. Start building your ultimate team today and
         unleash the power of your favorite Pokémon with Poketeam!
       </p>
-
       <h2>Team Members</h2>
       <p>
         We are a team of developers who love to code. Ironhack is our bootcamp.
@@ -49,19 +48,19 @@ const AboutPage = () => {
 
       <div className="team-members">
         <TeamMember
+          image={rui}
           name="Rui Folgado"
           role="Developer"
           github="https://github.com/Folgad0"
           linkedin="https://www.linkedin.com/in/rui-folgado/"
-          imageUrl={rui}
         />
 
         <TeamMember
           name="Diego Fernandes"
           role="Developer"
           github="https://github.com/kingblocks"
-          linkedin="https://linkedin.com/in/diegolima"
-          imageUrl={diego}
+          linkedin="https://www.linkedin.com/in/diego-fernandes-20/"
+          image={diego}
         />
 
         <TeamMember
@@ -69,7 +68,7 @@ const AboutPage = () => {
           role="Developer"
           github="https://github.com/dieegoolimaa"
           linkedin="https://linkedin.com/in/kivanckeskinbora"
-          imageUrl={kivanc}
+          image={kivanc}
         />
       </div>
     </div>

@@ -1,4 +1,7 @@
 /* AboutPage.module.css */
+/* * {
+  border: 1px solid red;
+} */
 
 .rui {
   background-image: url("../assets/rui.png");
@@ -13,14 +16,26 @@
 }
 
 .aboutPage {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
 }
 
 .aboutPage h1 {
-  font-size: 2rem;
+  margin-top: 40px;
   margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.aboutPage h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 2rem;
 }
 
 .aboutPage p {
@@ -30,41 +45,57 @@
 }
 
 .team-member {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+  margin: 10px;
 }
 
 .member-info {
-  flex: 1;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 250px;
+  height: 310px;
+  border: 1px solid white;
+  border-radius: 20px;
+  box-shadow: 3px 3px 20px rgba(247, 241, 241, 0.5);
 }
 
 .member-info h3 {
   font-size: 1.2rem;
-  margin-bottom: 10px;
 }
 
 .member-info p {
-  font-size: 1rem;
+  width: auto;
+  font-size: 0.9rem;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 .member-info a {
-  color: #007bff; /* Bootstrap's primary color */
+  color: #007bff;
 }
 
 .member-info a:hover {
   text-decoration: underline;
 }
 
-.team-member img {
-  width: 100px; /* Adjust as needed */
-  height: auto;
-  border-radius: 50%; /* Makes the image round */
+.member-image {
+  width: 170px;
+}
+
+.member-image img {
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
   margin-right: 20px;
 }
 
 .team-members {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
 }
