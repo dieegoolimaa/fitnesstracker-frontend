@@ -31,14 +31,16 @@ const AboutPage = () => {
     <div className="aboutPage">
       <h1>About Us</h1>
       <p>
-        Welcome to Poketeam—your ultimate Pokémon companion! Discover, compare,
-        and create your dream team with ease on our intuitive platform. Dive
-        into our extensive database to explore detailed stats on all Pokémon,
-        from classics to legendaries. Whether you're a seasoned trainer or just
-        starting your journey, Poketeam equips you with the tools to craft your
-        perfect lineup. Join our vibrant community, share strategies, and embark
-        on endless adventures. Start building your ultimate team today and
-        unleash the power of your favorite Pokémon with Poketeam!
+        Welcome to Fitness Tracker, your ultimate fitness companion! Track,
+        analyze, and optimize your fitness journey with ease on our intuitive
+        platform. Dive into our extensive exercise database to explore detailed
+        descriptions and instructions on a wide range of workouts, from cardio
+        to strength training. Whether you're a seasoned athlete or just starting
+        your fitness journey, Fitness Tracker equips you with the tools to
+        achieve your goals. Join our vibrant community, share workout tips, and
+        embark on endless fitness adventures. Start building your personalized
+        training program today and unleash the power of your potential with
+        Fitness Tracker! 🏋️‍♂️💪
       </p>
       <h2>Team Members</h2>
       <p>
