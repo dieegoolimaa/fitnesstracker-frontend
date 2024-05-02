@@ -9,7 +9,10 @@ import NewExercisePage from "./pages/NewExercisePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import ExercisesDetailsPage from "./pages/ExercisesDetailsPage.jsx";
+import WorkoutPage from "./pages/WorkoutPage.jsx";
+import CreateWorkoutPage from "./pages/CreateWorkoutPage.jsx";
 import "./App.css";
+
 
 function App() {
   return (
@@ -21,24 +24,23 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
 
-        <Route
-          path="/profile"
-          element={
+        <Route path="/profile"element={
             <PrivateRoute>
               <ProfilePage />
-            </PrivateRoute>
-          }
-        />
+            </PrivateRoute>}/>
+
         <Route path="/exercises" element={<AllExercisesPage />} />
         <Route path="/exercises/:id" element={<ExercisesDetailsPage />} />
+
         <Route
           path="/exercises/new"
           element={
             <PrivateRoute>
               <NewExercisePage />
-            </PrivateRoute>
-          }
-        />
+            </PrivateRoute>}/>
+
+         <Route path="/workouts" element={<WorkoutPage />} />
+         <Route path="/create-workout" element={<CreateWorkoutPage />} /> 
 
         <Route path="*" element={<h1>404 page</h1>} />
       </Routes>

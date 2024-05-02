@@ -38,6 +38,9 @@ const Navbar = () => {
           <Link to="/exercises">All Exercises</Link>
         </li>
         <li>
+          <Link to="/workouts">Workouts</Link>
+        </li>
+        <li>
           <Link to="/about">About</Link>
         </li>
       </ul>
