@@ -33,6 +33,6 @@ const AllExercisesPage = () => {
             ))}
         </div>
     );
-}
+} // commit testing 
  
 export default AllExercisesPage;
