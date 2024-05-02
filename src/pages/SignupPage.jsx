@@ -13,6 +13,9 @@ const SignupPage = () => {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [workoutFrequency, setWorkoutFrequency] = useState("");
+  const [error, setError] = useState(null); 
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,16 +45,42 @@ const SignupPage = () => {
       if (response.status === 201) {
         navigate("/login");
       } else {
-        console.error("Failed to sign up:", response.statusText);
+        // Get error message from response body
+        const { message } = await response.json();
+        setError(message); // Set error state
       }
     } catch (error) {
       console.error("Failed to sign up:", error.message);
+      setError("Failed to sign up. Please try again."); // Set error state
+    }
+  };
+
+  const handleEmailChange = (event) => {
+    const enteredEmail = event.target.value;
+    setEmail(enteredEmail);
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(enteredEmail);
+    if (!isValidEmail) {
+      setEmailError("Please enter a valid email address.");
+    } else {
+      setEmailError("");
+    }
+  };
+
+  const handlePasswordChange = (event) => {
+    const enteredPassword = event.target.value;
+    setPassword(enteredPassword);
+    const isValidPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(enteredPassword);
+    if (!isValidPassword) {
+      setPasswordError("Password must contain at least 1 letter and 1 number, and be at least 8 characters long.");
+    } else {
+      setPasswordError("");
     }
   };
 
   return (
     <div>
       <h1>Sign Up</h1>
+      {error && <p className="error-message">{error}</p>} {/* Display error message */}
       <form onSubmit={handleSubmit}>
         <TextInput
           label="Name"
@@ -62,20 +91,24 @@ const SignupPage = () => {
         <TextInput
           label="Email"
           value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={handleEmailChange}
           required
           placeholder="Enter your email"
           autoComplete="email"
+          error={emailError}
         />
-        <TextInput
+        {emailError && <div className="error-message">{emailError}</div>}
+         <TextInput
           label="Password"
           value={password}
-          onChange={(event) => setPassword(event.target.value)}
+          onChange={handlePasswordChange}
           required
           type="password"
           placeholder="Enter your password"
           autoComplete="new-password"
+          error={passwordError}
         />
+        {passwordError && <div className="error-message">{passwordError}</div>}
         <Checkbox
           label="Are you an instructor?"
           checked={isInstructor}

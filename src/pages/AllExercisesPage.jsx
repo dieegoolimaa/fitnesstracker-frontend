@@ -4,6 +4,7 @@ import "../styles/AllExercisesPage.css"; // Import your CSS file
 
 const AllExercisesPage = () => {
     const [exercises, setExercises] = useState([])
+    const [loading, setLoading] = useState(true);
     
     const fetchExercises = async () => {
         try {
@@ -14,6 +15,8 @@ const AllExercisesPage = () => {
             }
         } catch (error) {
             console.log(error)
+        } finally {
+            setLoading(false);
         }
     }
     
@@ -24,7 +27,9 @@ const AllExercisesPage = () => {
     return ( 
         <div className="exercise-container">
             <h1>All Exercises</h1>
-            {exercises.map(currentExercise => (
+            {loading && <p>Loading...</p>}
+            {!loading && exercises.length === 0 && <p>No exercises</p>}
+            {!loading && exercises.map(currentExercise => (
                 <Link to={`/exercises/${currentExercise._id}`} key={currentExercise._id}>
                     <div className="exercise-box">
                         <h2>{currentExercise.name}</h2>
@@ -33,6 +38,7 @@ const AllExercisesPage = () => {
             ))}
         </div>
     );
-} // commit testing 
- 
+}
+
 export default AllExercisesPage;
+
