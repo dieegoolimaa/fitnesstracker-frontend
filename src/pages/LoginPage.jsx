@@ -7,6 +7,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const { setToken } = useContext(SessionContext);
+  const [error, setError] = useState(null); // State to store error message
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,10 +33,13 @@ const LoginPage = () => {
         localStorage.setItem("authToken", parsed.token); // Store token in localStorage
         navigate("/profile");
       } else {
-        console.error("Failed to log in:", response.statusText);
+        // Get error message from response body
+        const { message } = await response.json();
+        setError(message); // Set error state
       }
     } catch (error) {
       console.error("Failed to log in:", error.message);
+      setError("Failed to log in. Please try again."); // Set error state
     }
   };
 
@@ -62,9 +66,11 @@ const LoginPage = () => {
           />
         </label>
         <button type="submit">Log In</button>
+        {error && <p className="error-message">{error}</p>} {/* Display error message */}
       </form>
     </div>
   );
 };
 
 export default LoginPage;
+
