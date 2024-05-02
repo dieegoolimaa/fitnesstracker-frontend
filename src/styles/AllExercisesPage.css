@@ -1,20 +1,26 @@
 /* AllExercisesPage.css */
-
+* {
+  /* border: 0.4px solid red; */
+}
 .exercise-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Align items horizontally center */
-  background-color: rgb(63, 61, 61);
-  color: aliceblue; /* Set text color */
+  align-items: center;
+}
+
+.exercise-box-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .exercise-box {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 600px;
-  background-color: #f35a01;
-  border: 1px solid #000000;
+  background-color: #52504f;
   border-radius: 15px;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -27,7 +33,20 @@
 
 .exercise-box h2 {
   margin-top: 0;
-  text-align: center; /* Center text horizontally */
+  text-align: center;
+  background-color: #52504f;
+  font-weight: bold;
+  color: #f35a01;
 }
 
-  
+.exercise-box p {
+  margin-top: 0.5rem;
+  text-align: center;
+  background-color: #52504f;
+}
+
+.exercise-box a {
+  background-color: #52504f;
+  margin: 0;
+  padding: 0;
+}
