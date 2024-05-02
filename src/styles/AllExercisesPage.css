@@ -1,21 +1,18 @@
-/* AllExercisesPage.css */
-* {
-  /* border: 0.4px solid red; */
-}
-.exercise-container {
+.exercise-page {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.exercise-box-container {
+.exercise-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.exercise-box {
+.exercise-info {
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,29 +21,29 @@
   border-radius: 15px;
   padding: 1rem;
   margin-bottom: 1rem;
-  transition: background-color 0.3s; /* Add transition effect for smoother hover */
 }
 
-.exercise-box:hover {
-  background-color: #f89d69; /* Change background color on hover */
-}
-
-.exercise-box h2 {
+.exercise-info h2 {
   margin-top: 0;
   text-align: center;
-  background-color: #52504f;
+  background-color: transparent;
   font-weight: bold;
   color: #f35a01;
 }
 
-.exercise-box p {
+.exercise-info p {
   margin-top: 0.5rem;
-  text-align: center;
-  background-color: #52504f;
+  text-align: justify;
+  background-color: transparent;
 }
 
-.exercise-box a {
-  background-color: #52504f;
+.exercise-info a {
+  background-color: transparent;
   margin: 0;
   padding: 0;
+}
+
+.exercise-info:hover {
+  color: black;
+  text-decoration: none;
 }

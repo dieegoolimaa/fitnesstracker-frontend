@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/AllExercisesPage.css"; // Import your CSS file
+import "../styles/AllExercisesPage.css";
 
 const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
@@ -24,18 +24,24 @@ const AllExercisesPage = () => {
   }, []);
 
   return (
-    <div className="exercise-container">
+    <div className="exercise-page">
       <h1>All Exercises</h1>
-      {exercises.map((currentExercise) => (
-        <Link
-          to={`/exercises/${currentExercise._id}`}
-          key={currentExercise._id}
-        >
-          <div className="exercise-box">
-            <h2>{currentExercise.name}</h2>
-          </div>
-        </Link>
-      ))}
+      <div className="exercise-container">
+        {exercises.map((currentExercise) => (
+          <Link
+            className="exercise-info"
+            to={`/exercises/${currentExercise._id}`}
+            key={currentExercise._id}
+          >
+            <h2>{currentExercise.name.toUpperCase()}</h2>
+            <p>{currentExercise.target_muscle}</p>
+            <p>{currentExercise.description}</p>
+            <img src={currentExercise.image} />{" "}
+            {/* Assuming image is 'image' */}
+            <img src={currentExercise.image} />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }; // commit testing
