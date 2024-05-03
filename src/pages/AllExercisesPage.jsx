@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "../styles/AllExercisesPage.css";
-
 const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
-
   const fetchExercises = async () => {
     try {
       const response = await fetch(
@@ -18,11 +17,9 @@ const AllExercisesPage = () => {
       console.log(error);
     }
   };
-
   useEffect(() => {
     fetchExercises();
   }, []);
-
   return (
     <div className="exercise-page">
       <h1>All Exercises</h1>
@@ -56,5 +53,4 @@ const AllExercisesPage = () => {
     </div>
   );
 };
-
 export default AllExercisesPage;
