@@ -20,9 +20,11 @@ const Navbar = () => {
             <li>
               <Link to="/profile">Profile</Link>
             </li>
-            <button type="button" onClick={logout}>
+            <li>
+            <Link onClick={logout}>
               Logout
-            </button>
+            </Link>
+            </li>
           </>
         ) : (
           <>
