@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import SignupPage from "./pages/SignupPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-import Navbar from "./components/Navbar.jsx";
+import Navbar from "./components/navbar.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import AllExercisesPage from "./pages/AllExercisesPage.jsx";
