@@ -88,13 +88,13 @@ const CreateWorkoutPage = () => {
             {/* Display available exercises with checkboxes */}
             {availableExercises.map((exercise) => (
               <div key={exercise._id} className="exercise-box">
+                <label htmlFor={`exercise-${exercise._id}`}>{exercise.name}</label>
                 <input
                   type="checkbox"
                   id={`exercise-${exercise._id}`}
                   checked={exercise.selected}
                   onChange={() => handleCheckboxChange(exercise._id)}
                 />
-                <label htmlFor={`exercise-${exercise._id}`}>{exercise.name}</label>
               </div>
             ))}
           </div>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import "../styles/AllExercisesPage.css";
 
 const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
+  const [selectedId, setSelectedId] = useState(null);
 
   const fetchExercises = async () => {
     try {
@@ -28,22 +28,33 @@ const AllExercisesPage = () => {
       <h1>All Exercises</h1>
       <div className="exercise-container">
         {exercises.map((currentExercise) => (
-          <Link
+          <motion.div
             className="exercise-info"
-            to={`/exercises/${currentExercise._id}`}
             key={currentExercise._id}
+            layoutId={currentExercise._id}
+            onClick={() => setSelectedId(currentExercise._id)}
           >
             <h2>{currentExercise.name.toUpperCase()}</h2>
             <p>{currentExercise.target_muscle}</p>
-            <p>{currentExercise.description}</p>
-            <img src={currentExercise.image} />{" "}
-            {/* Assuming image is 'image' */}
-            <img src={currentExercise.image} />
-          </Link>
+            {selectedId === currentExercise._id && (
+              <AnimatePresence>
+                <motion.div
+                  className="exercise-details"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <p>{currentExercise.description}</p>
+                  <img src={currentExercise.image} alt={currentExercise.name} />
+                  {/* Assuming image is 'image' */}
+                </motion.div>
+              </AnimatePresence>
+            )}
+          </motion.div>
         ))}
       </div>
     </div>
   );
-}; // commit testing
+};
 
 export default AllExercisesPage;

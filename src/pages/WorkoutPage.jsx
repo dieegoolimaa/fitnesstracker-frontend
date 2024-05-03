@@ -31,7 +31,7 @@ const AllWorkoutsPage = () => {
     <div className="workout-container">
       <h1>All Workouts</h1>
       <Link to="/create-workout" className="create-workout-link">
-        <button>Create a Workout</button>
+        Create a Workout
       </Link>
       {error ? (
         <p>{error}</p>
@@ -40,15 +40,9 @@ const AllWorkoutsPage = () => {
       ) : (
         <div className="workout-list">
           {workouts.map((currentWorkout) => (
-            <Link
-              to={`/workouts/${currentWorkout._id}`}
-              key={currentWorkout._id}
-              className="workout-link"
-            >
               <div className="workout-box">
                 <h2>{currentWorkout.name}</h2>
               </div>
-            </Link>
           ))}
         </div>
       )}
