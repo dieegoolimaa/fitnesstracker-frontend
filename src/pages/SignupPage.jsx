@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextInput, Checkbox, NumberInput, Select } from "@mantine/core";
 
@@ -13,7 +13,7 @@ const SignupPage = () => {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [workoutFrequency, setWorkoutFrequency] = useState("");
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
@@ -69,9 +69,13 @@ const SignupPage = () => {
   const handlePasswordChange = (event) => {
     const enteredPassword = event.target.value;
     setPassword(enteredPassword);
-    const isValidPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(enteredPassword);
+    const isValidPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(
+      enteredPassword
+    );
     if (!isValidPassword) {
-      setPasswordError("Password must contain at least 1 letter and 1 number, and be at least 8 characters long.");
+      setPasswordError(
+        "Password must contain at least 1 letter and 1 number, and be at least 8 characters long."
+      );
     } else {
       setPasswordError("");
     }
@@ -80,7 +84,8 @@ const SignupPage = () => {
   return (
     <div>
       <h1>Sign Up</h1>
-      {error && <p className="error-message">{error}</p>} {/* Display error message */}
+      {error && <p className="error-message">{error}</p>}{" "}
+      {/* Display error message */}
       <form onSubmit={handleSubmit}>
         <TextInput
           label="Name"
@@ -98,7 +103,7 @@ const SignupPage = () => {
           error={emailError}
         />
         {emailError && <div className="error-message">{emailError}</div>}
-         <TextInput
+        <TextInput
           label="Password"
           value={password}
           onChange={handlePasswordChange}

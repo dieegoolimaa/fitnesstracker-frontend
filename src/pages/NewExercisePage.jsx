@@ -1,26 +1,32 @@
-import { useContext, useEffect, useState } from 'react'
-import { SessionContext } from '../contexts/SessionContext'
-import '../styles/NewExercisePage.css'
+import { useContext, useEffect, useState } from "react";
+import { SessionContext } from "../contexts/SessionContext";
+import "../styles/NewExercisePage.css";
 
 const NewExercisePage = () => {
-  const { withToken } = useContext(SessionContext)
+  const { withToken } = useContext(SessionContext);
 
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
   const [duration, setDuration] = useState(0);
-  const [targetMuscle, setTargetMuscle] = useState('');
+  const [targetMuscle, setTargetMuscle] = useState("");
 
-  const handleSubmit = async event => {
-    event.preventDefault()
-    const payload = { name, description, category, duration, target_muscle: targetMuscle }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const payload = {
+      name,
+      description,
+      category,
+      duration,
+      target_muscle: targetMuscle,
+    };
 
-    withToken('/exercises', 'POST', payload)
-  }
+    withToken("/exercises", "POST", payload);
+  };
 
   useEffect(() => {
-    withToken('/exercises')
-  }, [])
+    withToken("/exercises");
+  }, []);
 
   return (
     <div className="form-container">
@@ -28,33 +34,51 @@ const NewExercisePage = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Name
-          <input value={name} onChange={event => setName(event.target.value)} required />
+          <input
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            required
+          />
         </label>
         <label>
           Description
-          <textarea value={description} onChange={event => setDescription(event.target.value)} required />
+          <textarea
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
+            required
+          />
         </label>
         <label>
           Category
-          <input value={category} onChange={event => setCategory(event.target.value)} required />
+          <input
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+            required
+          />
         </label>
         <label>
           Duration (minutes)
           <input
             value={duration}
-            onChange={event => setDuration(event.target.value)}
+            onChange={(event) => setDuration(event.target.value)}
             required
-            type='number'
+            type="number"
           />
         </label>
         <label>
           Target Muscle
-          <input value={targetMuscle} onChange={event => setTargetMuscle(event.target.value)} required />
+          <input
+            value={targetMuscle}
+            onChange={(event) => setTargetMuscle(event.target.value)}
+            required
+          />
         </label>
-        <button type="submit "class="custom-button">Create Exercise</button>
+        <button type="submit " className="custom-button">
+          Create Exercise
+        </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default NewExercisePage
+export default NewExercisePage;

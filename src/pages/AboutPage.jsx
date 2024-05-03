@@ -35,12 +35,12 @@ const AboutPage = () => {
         analyze, and optimize your fitness journey with ease on our intuitive
         platform. Dive into our extensive exercise database to explore detailed
         descriptions and instructions on a wide range of workouts, from cardio
-        to strength training. Whether you're a seasoned athlete or just starting
-        your fitness journey, Fitness Tracker equips you with the tools to
-        achieve your goals. Join our vibrant community, share workout tips, and
-        embark on endless fitness adventures. Start building your personalized
-        training program today and unleash the power of your potential with
-        Fitness Tracker! 🏋️‍♂️💪
+        to strength training. Whether you are a seasoned athlete or just
+        starting your fitness journey, Fitness Tracker equips you with the tools
+        to achieve your goals. Join our vibrant community, share workout tips,
+        and embark on endless fitness adventures. Start building your
+        personalized training program today and unleash the power of your
+        potential with Fitness Tracker! 🏋️‍♂️💪
       </p>
       <h2>Team Members</h2>
       <p>
