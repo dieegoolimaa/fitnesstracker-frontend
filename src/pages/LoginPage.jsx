@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { SessionContext } from "../contexts/SessionContext";
 import { useNavigate, Link } from "react-router-dom";
-import "../styles/LoginPage.css";
+import style from "../styles/LoginPage.module.css";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -44,32 +44,41 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className={style.loginContainer}>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
+
+      <form className={style.loginForm} onSubmit={handleSubmit}>
         <label>
-          Email
+          Email:
           <input
+            className={style.inputField}
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             required
             type="email"
+            placeholder="Enter your email"
           />
         </label>
-        <label>
-          Password
+        <label className={style.labelField}>
+          Password:
           <input
+            className={style.inputField}
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             required
             type="password"
+            placeholder="Enter your password"
           />
         </label>
-        <button type="submit">Log In</button>
+        <div className={style.loginButtonContainer}>
+          <button className={style.loginButton} type="submit">
+            Log In
+          </button>
+        </div>
         {error && <p className="error-message">{error}</p>}{" "}
         {/* Display error message */}
       </form>
-      <div className="signup-link">
+      <div className={style.signupContainer}>
         <p>Do not have an account?</p>
         <Link to="/signup">Sign Up</Link>
       </div>

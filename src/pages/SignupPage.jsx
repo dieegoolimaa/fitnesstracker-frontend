@@ -90,6 +90,7 @@ const SignupPage = () => {
       <div className={style.formContainer}>
         <form onSubmit={handleSubmit}>
           <TextInput
+            className={style.inputField}
             type="text"
             label="Name"
             value={name}
@@ -120,12 +121,16 @@ const SignupPage = () => {
           {passwordError && (
             <div className="error-message">{passwordError}</div>
           )}
-          <Checkbox
-            type="checkbox"
-            label="Are you an instructor?"
-            checked={isInstructor}
-            onChange={() => setIsInstructor(!isInstructor)}
-          />
+          <div className={style.checkbox}>
+            {" "}
+            <Checkbox
+              type="checkbox"
+              label="Are you an instructor?"
+              checked={isInstructor}
+              onChange={() => setIsInstructor(!isInstructor)}
+            />
+          </div>
+
           <NumberInput
             type="number"
             label="Age"
@@ -166,9 +171,11 @@ const SignupPage = () => {
             placeholder="Select your workout frequency"
             data={["", "daily", "weekly", "monthly"]}
           />
-          <button className={style.buttonSignup} type="submit">
-            Sign Up
-          </button>
+          <div className={style.buttonContainer}>
+            <button className={style.buttonSignup} type="submit">
+              Sign Up
+            </button>
+          </div>
         </form>
       </div>
     </div>
