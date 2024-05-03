@@ -3,37 +3,35 @@
   font-weight: 500;
 }
 
-.navbar nav {
+nav {
   color: #fff;
   padding: 1rem;
-  padding-right: 30px;
   height: 60px;
   align-content: center;
 }
 
-.navbar ul {
+ul {
   list-style-type: none;
-  padding: 0;
   display: flex;
   justify-content: flex-end;
+  padding: 5px;
 }
 
-.navbar li:last-child {
+li:last-child {
   margin-right: 0;
 }
 
-.navbar a {
+a {
   color: #fff;
   text-decoration: none;
   margin: 10px;
   padding: 5px;
-  padding: 5px 20px;
 }
 
-.navbar a:hover {
+a:hover {
   color: black;
   text-decoration: none;
   background-color: white;
   border-radius: 20px;
-  padding: 5px 20px;
+  padding: 5px;
 }

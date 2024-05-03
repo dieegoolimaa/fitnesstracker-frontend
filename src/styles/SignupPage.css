@@ -6,11 +6,10 @@
   width: 500px;
 }
 
-.signup-container label {
+label {
   margin-bottom: 10px;
 }
-
-.signup-container input {
+input {
   padding: 8px;
   margin-bottom: 20px;
 }

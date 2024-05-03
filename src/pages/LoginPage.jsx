@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { SessionContext } from "../contexts/SessionContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/LoginPage.css";
 
 const LoginPage = () => {
@@ -66,11 +66,15 @@ const LoginPage = () => {
           />
         </label>
         <button type="submit">Log In</button>
-        {error && <p className="error-message">{error}</p>} {/* Display error message */}
+        {error && <p className="error-message">{error}</p>}{" "}
+        {/* Display error message */}
       </form>
+      <div className="signup-link">
+        <p>Do not have an account?</p>
+        <Link to="/signup">Sign Up</Link>
+      </div>
     </div>
   );
 };
 
 export default LoginPage;
-

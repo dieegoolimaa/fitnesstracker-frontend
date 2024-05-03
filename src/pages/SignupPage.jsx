@@ -82,7 +82,7 @@ const SignupPage = () => {
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <h1>Sign Up</h1>
       {error && <p className="error-message">{error}</p>}{" "}
       {/* Display error message */}

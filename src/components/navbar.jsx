@@ -21,16 +21,11 @@ const Navbar = () => {
               <Link to="/profile">Profile</Link>
             </li>
             <li>
-            <Link onClick={logout}>
-              Logout
-            </Link>
+              <Link onClick={logout}>Logout</Link>
             </li>
           </>
         ) : (
           <>
-            <li>
-              <Link to="/signup">Sign Up</Link>
-            </li>
             <li>
               <Link to="/login">Log In</Link>
             </li>
