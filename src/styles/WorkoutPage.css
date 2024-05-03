@@ -1,29 +1,45 @@
 .workout-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0px;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    
-  }
- 
-  .workout-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #b1b3b1;
-    border-radius: 8px;
-    padding: 10px;
-    transition: background-color 0.3s ease;
-    height: 200px;
-    margin-bottom: 20px;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .workout-box:hover {
-    background-color: #313131;
-  }
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-  
-  
+.create-workout-link {
+  margin-bottom: 20px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.error,
+.no-workouts {
+  font-size: 18px;
+  color: #dc3545;
+  margin-bottom: 20px;
+}
+
+.draggable-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Ensure items don't overflow horizontally */
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+}
+
+.draggable-item {
+  border-radius: 10px;
+  background-color: #1b1b1b;
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: center;
+  height: 50px; /* Set the height of each item */
+  margin-bottom: 10px; /* Add margin bottom for spacing between items */
+}

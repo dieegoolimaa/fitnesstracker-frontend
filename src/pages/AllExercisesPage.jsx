@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/AllExercisesPage.css";
 
+
 const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
