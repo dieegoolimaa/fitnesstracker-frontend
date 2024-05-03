@@ -3,7 +3,7 @@
   font-weight: 500;
 }
 
-nav {
+.navbar nav {
   color: #fff;
   padding: 1rem;
   padding-right: 30px;
@@ -11,18 +11,18 @@ nav {
   align-content: center;
 }
 
-ul {
+.navbar ul {
   list-style-type: none;
   padding: 0;
   display: flex;
   justify-content: flex-end;
 }
 
-li:last-child {
+.navbar li:last-child {
   margin-right: 0;
 }
 
-a {
+.navbar a {
   color: #fff;
   text-decoration: none;
   margin: 10px;
@@ -30,7 +30,7 @@ a {
   padding: 5px 20px;
 }
 
-a:hover {
+.navbar a:hover {
   color: black;
   text-decoration: none;
   background-color: white;
