@@ -1,7 +1,7 @@
 .workout-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0px;
+    padding: 20px;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -13,17 +13,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #b1b3b1;
+    background-color: #52504f;
     border-radius: 8px;
     padding: 10px;
     transition: background-color 0.3s ease;
     height: 200px;
-    margin-bottom: 20px;
   }
-
-  .workout-box:hover {
-    background-color: #313131;
-  }
-
   
+  .workout-box:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .workout-box h2 {
+    margin-top: 0;
+    margin-bottom: 1px;
+    background-color: #52504f;
+  }
   
