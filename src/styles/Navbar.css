@@ -43,10 +43,8 @@ a:hover {
 .dropdown-content {
   display: none;
   position: absolute;
-  margin: 7px;
   border-radius: 10px;
   width: 130px;
-  height: 90px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -58,4 +56,9 @@ a:hover {
 .dropdown-item {
   margin: 5px;
   padding: 5px;
+  color: #000; /* Text color for dropdown items */
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0; /* Hover background color for dropdown items */
 }

@@ -8,9 +8,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
-    setOpen(open);
+    setOpen(!open);
   };
-
   return (
     <nav className="navbar">
       <ul>
@@ -19,24 +18,27 @@ const Navbar = () => {
         </li>
         {token ? (
           <li className="dropdown" onClick={handleClick}>
-            <Link to="/profile">Profile</Link>
-            <ul className="dropdown-content">
-              <li className="dropdown-item">
-                <Link to="/workouts">Workouts</Link>
-              </li>
-              <li className="dropdown-item">
-                <Link to="/" onClick={logout}>
-                  Logout
-                </Link>
-              </li>
-            </ul>
+            <span>Profile</span>
+            {open && (
+              <ul className="dropdown-content">
+                <li className="dropdown-item">
+                  <Link to="/profile">Personal Information</Link>
+                </li>
+                <li className="dropdown-item">
+                  <Link to="/workouts">Workouts</Link>
+                </li>
+                <li className="dropdown-item">
+                  <Link to="/" onClick={logout}>
+                    Logout
+                  </Link>
+                </li>
+              </ul>
+            )}
           </li>
         ) : (
-          <>
-            <li>
-              <Link to="/login">Log In</Link>
-            </li>
-          </>
+          <li>
+            <Link to="/login">Log In</Link>
+          </li>
         )}
         <li>
           <Link to="/exercises">All Exercises</Link>
