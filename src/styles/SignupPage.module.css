@@ -1,0 +1,78 @@
+.signupContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupTitle {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  border: 0.5px solid white;
+  border-radius: 30px;
+  width: calc(90% - 40px);
+  max-width: calc(700px - 40px);
+  box-shadow: 3px 3px 20px rgba(247, 241, 241, 0.5);
+}
+
+form {
+  width: 100%;
+}
+
+input {
+  margin-top: 10px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+label {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.checkbox {
+  margin-top: 15px;
+}
+
+.buttonContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonSignup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  margin: 10px;
+  padding: 5px;
+  background-color: transparent;
+  border: 0.5px solid white;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.buttonSignup:hover {
+  color: black;
+  text-decoration: none;
+  margin: 10px;
+  padding: 5px;
+  background-color: rgb(224, 248, 7);
+  border: 0.5px solid white;
+  border-radius: 20px;
+  width: 100%;
+}

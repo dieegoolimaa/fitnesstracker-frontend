@@ -1,4 +1,5 @@
 .workout-container {
+<<<<<<< HEAD
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -43,3 +44,36 @@
   height: 50px; /* Set the height of each item */
   margin-bottom: 10px; /* Add margin bottom for spacing between items */
 }
+=======
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+ 
+  .workout-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #52504f;
+    border-radius: 8px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    height: 200px;
+  }
+  
+  .workout-box:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .workout-box h2 {
+    margin-top: 0;
+    margin-bottom: 1px;
+    background-color: #52504f;
+  }
+  
+>>>>>>> 61f22d100c87ccdeb6c98fc366832204ae58a4a2

@@ -6,16 +6,15 @@
 nav {
   color: #fff;
   padding: 1rem;
-  padding-right: 30px;
   height: 60px;
   align-content: center;
 }
 
 ul {
   list-style-type: none;
-  padding: 0;
   display: flex;
   justify-content: flex-end;
+  padding: 5px;
 }
 
 li:last-child {
@@ -27,7 +26,6 @@ a {
   text-decoration: none;
   margin: 10px;
   padding: 5px;
-  padding: 5px 20px;
 }
 
 a:hover {
@@ -35,5 +33,5 @@ a:hover {
   text-decoration: none;
   background-color: white;
   border-radius: 20px;
-  padding: 5px 20px;
+  padding: 5px;
 }

@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DraggableList from '../components/DraggableList.jsx';
 import '../styles/WorkoutPage.css';
+=======
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/WorkoutPage.css";
+>>>>>>> 61f22d100c87ccdeb6c98fc366832204ae58a4a2
 
 const AllWorkoutsPage = () => {
   const [workouts, setWorkouts] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const fetchWorkouts = async () => {
     try {
@@ -14,11 +20,11 @@ const AllWorkoutsPage = () => {
         const workoutsData = await response.json();
         setWorkouts(workoutsData);
       } else {
-        throw new Error('Failed to fetch workouts');
+        throw new Error("Failed to fetch workouts");
       }
     } catch (error) {
       console.error(error);
-      setError('Failed to fetch workouts');
+      setError("Failed to fetch workouts");
     }
   };
 
@@ -47,4 +53,7 @@ const AllWorkoutsPage = () => {
 
 
 export default AllWorkoutsPage;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 61f22d100c87ccdeb6c98fc366832204ae58a4a2
