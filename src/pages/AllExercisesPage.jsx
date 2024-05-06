@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import "../styles/AllExercisesPage.css";
+
 const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
@@ -22,32 +22,37 @@ const AllExercisesPage = () => {
   }, []);
   return (
     <div className="exercise-page">
-      <h1>All Exercises</h1>
-      <div className="exercise-container">
+      <div className="exercise-title">
+        <h1>All Exercises</h1>
+      </div>
+
+      <div>
         {exercises.map((currentExercise) => (
-          <motion.div
-            className="exercise-info"
+          <div
             key={currentExercise._id}
-            layoutId={currentExercise._id}
+            className={`exercise-item ${
+              selectedId === currentExercise._id ? "selected" : ""
+            }`}
             onClick={() => setSelectedId(currentExercise._id)}
           >
             <h2>{currentExercise.name.toUpperCase()}</h2>
             <p>{currentExercise.target_muscle}</p>
             {selectedId === currentExercise._id && (
-              <AnimatePresence>
-                <motion.div
-                  className="exercise-details"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <p>{currentExercise.description}</p>
-                  <img src={currentExercise.image} alt={currentExercise.name} />
-                  {/* Assuming image is 'image' */}
-                </motion.div>
-              </AnimatePresence>
+              <>
+                <p>{currentExercise.description}</p>
+                <div>
+                  <img
+                    src={currentExercise.image1}
+                    alt={currentExercise.name}
+                  />
+                  <img
+                    src={currentExercise.image1}
+                    alt={currentExercise.name}
+                  />
+                </div>
+              </>
             )}
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

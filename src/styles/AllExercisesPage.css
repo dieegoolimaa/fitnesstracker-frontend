@@ -1,18 +1,12 @@
 .exercise-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(1, 3fr);
+  grid-gap: 1rem; /* Adjust spacing as needed */
+  /* Other styles... */
 }
 
-.exercise-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.exercise-info {
-  width: 300px;
+.exercise-item {
+  /* Remove fixed width */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,30 +17,25 @@
   margin-bottom: 1rem;
 }
 
-.exercise-info h2 {
-  margin-top: 0;
-  text-align: center;
-  background-color: transparent;
+.exercise-page h2,
+p {
+  margin-bottom: 0.5rem;
+  background: transparent;
+}
+
+.exercise-item h2 {
+  color: orangered;
   font-weight: bold;
-  color: #f35a01;
+}
+.exercise-item p {
+  text-align: center;
+}
+.exercise-item:hover {
+  background-color: #807b7b;
 }
 
-.exercise-info p {
-  margin-top: 0.5rem;
-  text-align: justify;
-  background-color: transparent;
-}
-
-.exercise-info a {
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
-
-.exercise-info:hover {
-  color: black;
-  text-decoration: none;
+.exercise-title {
+  margin: 20px;
 }
 
 link {
