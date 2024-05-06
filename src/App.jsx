@@ -8,7 +8,6 @@ import AllExercisesPage from "./pages/AllExercisesPage.jsx";
 import NewExercisePage from "./pages/NewExercisePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import ExercisesDetailsPage from "./pages/ExercisesDetailsPage.jsx";
 import WorkoutPage from "./pages/WorkoutPage.jsx";
 import CreateWorkoutPage from "./pages/CreateWorkoutPage.jsx";
 import "./App.css";
@@ -33,7 +32,6 @@ function App() {
         />
 
         <Route path="/exercises" element={<AllExercisesPage />} />
-        <Route path="/exercises/:id" element={<ExercisesDetailsPage />} />
 
         <Route
           path="/exercises/new"

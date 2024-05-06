@@ -13,24 +13,19 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         {token ? (
-          <>
-            <li>
-              <Link to="/exercises/new">Create new Exercise</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-            <li>
-            <Link onClick={logout}>
-              Logout
-            </Link>
-            </li>
-          </>
+          <li className="dropdown">
+            <Link to="/profile">Profile</Link>
+            <ul className="dropdown-content">
+              <li className="dropdown-item">
+                <Link to="/workouts">Workouts</Link>
+              </li>
+              <li>
+                <Link onClick={logout}>Logout</Link>
+              </li>
+            </ul>
+          </li>
         ) : (
           <>
-            <li>
-              <Link to="/signup">Sign Up</Link>
-            </li>
             <li>
               <Link to="/login">Log In</Link>
             </li>
@@ -38,9 +33,6 @@ const Navbar = () => {
         )}
         <li>
           <Link to="/exercises">All Exercises</Link>
-        </li>
-        <li>
-          <Link to="/workouts">Workouts</Link>
         </li>
         <li>
           <Link to="/about">About</Link>
