@@ -5,6 +5,7 @@ const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
   const [isExpanded, setIsExpanded] = useState({});
+  const [searchTerm, setSearchTerm] = useState("");
 
   const fetchExercises = async () => {
     try {
@@ -25,11 +26,7 @@ const AllExercisesPage = () => {
   }, []);
 
   const handleExpandClick = (id) => {
-    setIsExpanded({
-      ...Object.fromEntries(
-        exercises.map((exercise) => [exercise._id, exercise._id === id])
-      ),
-    });
+    setIsExpanded({ ...isExpanded, [id]: !isExpanded[id] });
   };
 
   useEffect(() => {
@@ -52,58 +49,83 @@ const AllExercisesPage = () => {
     <div className="exercise-page">
       <div className="exercise-title">
         <h1>All Exercises</h1>
+        <p className="exerciseDescription">
+          Below you will find a list of all exercises available for training.
+        </p>
+      </div>
+
+      <div className="exercise-search">
+        <input
+          type="text"
+          placeholder="Search by target muscle"
+          onChange={(event) => setSearchTerm(event.target.value)} // Update search term on input change
+        />
       </div>
 
       <div className="exercise-list">
-        {exercises.map((currentExercise) => (
-          <div
-            key={currentExercise._id}
-            className={`exercise-item ${
-              selectedId === currentExercise._id ? "selected" : ""
-            }`}
-            onClick={() => setSelectedId(currentExercise._id)}
-          >
-            <h2>{currentExercise.name.toUpperCase()}</h2>
-            <p>{currentExercise.target_muscle}</p>
-            {selectedId === currentExercise._id && (
-              <>
-                <p>{currentExercise.description}</p>
+        {exercises
+          .filter((currentExercise) => {
+            // Filter based on search term (case-insensitive)
+            return (
+              currentExercise.name
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase()) ||
+              currentExercise.target_muscle
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase())
+            );
+          })
+          .map((currentExercise) => (
+            <div
+              key={currentExercise._id}
+              className={`exercise-item ${
+                selectedId === currentExercise._id ? "selected" : ""
+              }`}
+              onClick={() => setSelectedId(currentExercise._id)}
+            >
+              <h2>{currentExercise.name.toUpperCase()}</h2>
+              <p>{currentExercise.target_muscle}</p>
+              {selectedId === currentExercise._id && (
+                <>
+                  <p className="exerciseDescription">
+                    {currentExercise.description}
+                  </p>
 
-                <div className="setsandReps">
-                  <h4>Sets</h4>
-                  <div>
-                    <p>
-                      {currentExercise.setsandreps.sets} x
-                      {currentExercise.setsandreps.reps}
-                    </p>
-                  </div>
-                </div>
-                <div className="images">
-                  {isExpanded[currentExercise._id] && ( // Check if expanded
+                  <div className="setsandReps">
+                    <h4>Sets</h4>
                     <div>
-                      <img
-                        src={currentExercise.image1}
-                        alt={currentExercise.name}
-                      />
-                      <img
-                        src={currentExercise.image1}
-                        alt={currentExercise.name}
-                      />
+                      <p>
+                        {currentExercise.setsandreps.sets} x
+                        {currentExercise.setsandreps.reps}
+                      </p>
                     </div>
-                  )}
-                  <button
-                    className="expand-button"
-                    onClick={() => handleExpandClick(currentExercise._id)}
-                  >
-                    {isExpanded[currentExercise._id]
-                      ? "Hide exercise"
-                      : "See exercise"}
-                  </button>
-                </div>
-              </>
-            )}
-          </div>
-        ))}
+                  </div>
+                  <div className="images">
+                    {isExpanded[currentExercise._id] && ( // Check if expanded
+                      <div>
+                        <img
+                          src={currentExercise.image1}
+                          alt={currentExercise.name}
+                        />
+                        <img
+                          src={currentExercise.image1}
+                          alt={currentExercise.name}
+                        />
+                      </div>
+                    )}
+                    <button
+                      className="expand-button"
+                      onClick={() => handleExpandClick(currentExercise._id)}
+                    >
+                      {isExpanded[currentExercise._id]
+                        ? "Hide exercise"
+                        : "See exercise"}
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          ))}
       </div>
     </div>
   );

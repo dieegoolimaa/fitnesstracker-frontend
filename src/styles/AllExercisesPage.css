@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .exercise-list {
@@ -39,7 +40,6 @@
 }
 
 .exercise-item.selected {
-  /* Adjust max-width here based on your design */
   max-width: 500px;
   opacity: 1;
   background-color: #807b7b;
@@ -50,9 +50,7 @@
   background-color: #807b7b;
 }
 
-.exercise-page h2,
-p {
-  margin-bottom: 0.5rem;
+.exercise-page h2 {
   background: transparent;
   text-align: center;
 }
@@ -61,8 +59,11 @@ p {
   color: orangered;
   font-weight: bold;
 }
-.exercise-item p {
-  text-align: center;
+
+.exerciseDescription {
+  background: transparent;
+  text-align: justify;
+  padding: 0.5rem;
 }
 
 link {
@@ -89,13 +90,21 @@ link {
   justify-content: center;
   align-items: center;
   margin-bottom: 0.5rem;
-  background-color: #bebebe;
+  background: transparent;
   border-radius: 10px;
   padding: 0.5rem;
 }
 
 .images {
   margin-top: 1rem;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.exercise-search {
   background: transparent;
   display: flex;
   flex-direction: column;
