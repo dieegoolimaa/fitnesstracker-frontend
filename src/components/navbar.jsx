@@ -1,10 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext";
 import "../styles/Navbar.css"; // Import your CSS file
 
 const Navbar = () => {
   const { token, logout } = useContext(SessionContext);
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(open);
+  };
 
   return (
     <nav className="navbar">
@@ -13,14 +18,16 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         {token ? (
-          <li className="dropdown">
+          <li className="dropdown" onClick={handleClick}>
             <Link to="/profile">Profile</Link>
             <ul className="dropdown-content">
               <li className="dropdown-item">
                 <Link to="/workouts">Workouts</Link>
               </li>
-              <li>
-                <Link onClick={logout}>Logout</Link>
+              <li className="dropdown-item">
+                <Link to="/" onClick={logout}>
+                  Logout
+                </Link>
               </li>
             </ul>
           </li>
