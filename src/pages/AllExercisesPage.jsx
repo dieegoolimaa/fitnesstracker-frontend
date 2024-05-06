@@ -84,7 +84,9 @@ const AllExercisesPage = () => {
               onClick={() => setSelectedId(currentExercise._id)}
             >
               <h2>{currentExercise.name.toUpperCase()}</h2>
-              <p>{currentExercise.target_muscle}</p>
+              <p className="exerciseDescription">
+                {currentExercise.target_muscle}
+              </p>
               {selectedId === currentExercise._id && (
                 <>
                   <p className="exerciseDescription">

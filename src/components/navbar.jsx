@@ -16,7 +16,7 @@ const Navbar = () => {
           <li className="dropdown">
             <Link to="/profile">Profile</Link>
             <ul className="dropdown-content">
-              <li>
+              <li className="dropdown-item">
                 <Link to="/workouts">Workouts</Link>
               </li>
               <li>
