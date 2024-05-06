@@ -30,20 +30,29 @@ function DraggableList({ items }) {
   });
 
   return (
-    <div style={{ height: containerHeight, overflow: 'hidden' }}>
+    <div  // Apply styles to the container element
+      style={{
+        height: containerHeight,
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
       {springs.map(({ zIndex, shadow, y, scale }, i) => (
         <animated.div
           {...bind(i)}
           key={i}
           className="draggable-item"
-          style={{
+          style={{  // Adjust width and other styles here
             zIndex,
             boxShadow: shadow.to(s => `rgba(0, 0, 0, 0.15) 0px ${s}px ${2 * s}px 0px`),
             y,
             scale,
             position: 'absolute',
-            width: '100%', // Full width
-            height: `${height}px`, // Set the height of each item
+            width: '300px',  // Set your desired width here
+            height: `${height}px`,
+            overflow: 'hidden',
           }}
         >
           {items[i]}
