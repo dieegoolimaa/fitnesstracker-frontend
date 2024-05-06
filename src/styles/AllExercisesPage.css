@@ -1,26 +1,60 @@
+.exercise-title {
+  margin: 20px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .exercise-page {
-  display: grid;
-  grid-template-columns: repeat(1, 3fr);
-  grid-gap: 1rem; /* Adjust spacing as needed */
-  /* Other styles... */
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .exercise-item {
-  /* Remove fixed width */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 8px;
+  width: 500px;
+  max-width: 500px;
   background-color: #52504f;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.exercise-item:not(.selected) {
+  max-width: 500px;
+}
+
+.exercise-item.selected {
+  /* Adjust max-width here based on your design */
+  max-width: 500px;
+  opacity: 1;
+  background-color: #807b7b;
+  filter: none;
+}
+
+.exercise-item:hover {
+  background-color: #807b7b;
 }
 
 .exercise-page h2,
 p {
   margin-bottom: 0.5rem;
   background: transparent;
+  text-align: center;
 }
 
 .exercise-item h2 {
@@ -30,14 +64,41 @@ p {
 .exercise-item p {
   text-align: center;
 }
-.exercise-item:hover {
-  background-color: #807b7b;
-}
-
-.exercise-title {
-  margin: 20px;
-}
 
 link {
   text-decoration: none;
+}
+
+.expand-button {
+  background-color: transparent;
+  border: none;
+  color: #bebebe;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: normal;
+  padding: 0.5rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.expand-button:hover {
+  color: #fff;
+}
+
+.setandReps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  background-color: #bebebe;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.images {
+  margin-top: 1rem;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
