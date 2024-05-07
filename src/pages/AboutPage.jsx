@@ -1,35 +1,13 @@
-import "../styles/AboutPage.css";
+import TeamMember from "../components/TeamMember.jsx";
 import kivanc from "../assets/kivanc.png";
 import rui from "../assets/rui.png";
 import diego from "../assets/diego.png";
-
-const TeamMember = ({ name, role, github, linkedin, image }) => (
-  <div className="team-member">
-    <div className="member-info">
-      <div className="member-image">
-        <img src={image} />
-      </div>
-      <h3>{name}</h3>
-      <p>
-        <strong>Role:</strong> {role}
-      </p>
-      <p>
-        <a href={github} target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>{" "}
-        |{" "}
-        <a href={linkedin} target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-      </p>
-    </div>
-  </div>
-);
+import style from "../styles/AboutPage.module.css";
 
 const AboutPage = () => {
   return (
-    <div className="aboutPage">
-      <h1>About Us</h1>
+    <div className={style.aboutPage}>
+      <h1 className={style.title}>About Us</h1>
       <p>
         Welcome to Fitness Tracker, your ultimate fitness companion! Track,
         analyze, and optimize your fitness journey with ease on our intuitive
@@ -42,13 +20,13 @@ const AboutPage = () => {
         personalized training program today and unleash the power of your
         potential with Fitness Tracker! 🏋️‍♂️💪
       </p>
-      <h2>Team Members</h2>
+      <h1 className={style.title}>Team Members</h1>
       <p>
         We are a team of developers who love to code. Ironhack is our bootcamp.
         We are based in Germany. We hope to see you in other projects.
       </p>
 
-      <div className="team-members">
+      <div className={style.teamMembers}>
         <TeamMember
           image={rui}
           name="Rui Folgado"

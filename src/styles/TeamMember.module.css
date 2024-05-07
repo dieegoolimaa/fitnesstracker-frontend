@@ -1,0 +1,28 @@
+.memberInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  width: 220px;
+  border: 1px solid white;
+  border-radius: 30px;
+  box-shadow: 3px 3px 20px rgba(247, 241, 241, 0.5);
+}
+
+.imageContainer {
+  width: 200px;
+  margin-top: 10px;
+}
+
+.memberImage {
+  width: 160px;
+  border-radius: 50%;
+  margin: 10px;
+  object-fit: cover;
+}
+
+.memberDetails {
+  font-size: 1.1rem;
+}
