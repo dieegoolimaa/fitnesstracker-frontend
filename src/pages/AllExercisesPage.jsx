@@ -25,7 +25,6 @@ const AllExercisesPage = () => {
       console.log("Error fetching exercises:", error);
     }
   };
-  
 
   useEffect(() => {
     fetchExercises();
@@ -41,7 +40,7 @@ const AllExercisesPage = () => {
       const exerciseList = document.querySelector(".exercise-list");
       if (exerciseList && !exerciseList.contains(event.target)) {
         setSelectedId(null);
-        setIsExpanded({}); 
+        setIsExpanded({});
       }
     };
 
@@ -74,7 +73,7 @@ const AllExercisesPage = () => {
       </div>
 
       <div>
-        <Link to="/exercise-new">Create a exercise</Link>
+        <Link to="/exercise/new">Create a exercise</Link>
       </div>
 
       <div className="exercise-search">
@@ -88,7 +87,7 @@ const AllExercisesPage = () => {
       <div className="exercise-list">
         {exercises
           .filter((currentExercise) => {
-            console.log("Current exercise:", currentExercise); 
+            console.log("Current exercise:", currentExercise);
             return (
               currentExercise.name
                 .toLowerCase()
@@ -129,20 +128,19 @@ const AllExercisesPage = () => {
                     </div>
                   </div>
                   <div className="images">
-                  {isExpanded[currentExercise._id] && (
-  <div className="imagescontainer">
-    <img
-      src={currentExercise['image-1']} 
-      alt={`${currentExercise.name} Image`}
-    />
-    <img
-      src={currentExercise['image-2']}
-      alt={`${currentExercise.name} Image`}
-    />
-  </div>
-  
-)}
-               
+                    {isExpanded[currentExercise._id] && (
+                      <div className="imagescontainer">
+                        <img
+                          src={currentExercise["image-1"]}
+                          alt={`${currentExercise.name} Image`}
+                        />
+                        <img
+                          src={currentExercise["image-2"]}
+                          alt={`${currentExercise.name} Image`}
+                        />
+                      </div>
+                    )}
+
                     <button
                       className="expand-button"
                       onClick={() => handleExpandClick(currentExercise._id)}
@@ -162,6 +160,3 @@ const AllExercisesPage = () => {
 };
 
 export default AllExercisesPage;
-
-
-
