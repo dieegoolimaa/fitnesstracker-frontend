@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { SessionContext } from "../contexts/SessionContext";
-import "../styles/NewExercisePage.css";
+import { useNavigate } from "react-router-dom";
+
+import style from "../styles/NewExercisePage.module.css";
 
 const NewExercisePage = () => {
   const { withToken } = useContext(SessionContext);
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -22,6 +25,8 @@ const NewExercisePage = () => {
     };
 
     withToken("/exercises", "POST", payload);
+    // Redirect to exercises page after successful creation
+    navigate("/exercises");
   };
 
   useEffect(() => {
@@ -29,54 +34,61 @@ const NewExercisePage = () => {
   }, []);
 
   return (
-    <div className="form-container">
-      <h1>New Exercise</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name
-          <input
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Description
-          <textarea
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Category
-          <input
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Duration (minutes)
-          <input
-            value={duration}
-            onChange={(event) => setDuration(event.target.value)}
-            required
-            type="number"
-          />
-        </label>
-        <label>
-          Target Muscle
-          <input
-            value={targetMuscle}
-            onChange={(event) => setTargetMuscle(event.target.value)}
-            required
-          />
-        </label>
-        <button type="submit " className="custom-button">
-          Create Exercise
-        </button>
-      </form>
+    <div className={style.newExercisePage}>
+      <div className={style.title}>
+        <h1>New Exercise</h1>
+      </div>
+      <div className={style.newExerciseForm}>
+        <form className={style.form} onSubmit={handleSubmit}>
+          <label>
+            Name
+            <input
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Description <br />
+            <br />
+            <textarea
+              rows="5"
+              cols="50"
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Category
+            <input
+              value={category}
+              onChange={(event) => setCategory(event.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Duration (minutes)
+            <input
+              value={duration}
+              onChange={(event) => setDuration(event.target.value)}
+              required
+              type="number"
+            />
+          </label>
+          <label>
+            Target Muscle
+            <input
+              value={targetMuscle}
+              onChange={(event) => setTargetMuscle(event.target.value)}
+              required
+            />
+          </label>
+          <button type="submit " className={style.customButton}>
+            Create Exercise
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

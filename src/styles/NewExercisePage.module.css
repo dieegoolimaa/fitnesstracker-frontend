@@ -1,0 +1,88 @@
+/* NewExercisePage.css */
+
+body {
+  height: auto;
+}
+
+.newExercisePage {
+  margin: 0 auto;
+  padding: 0px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #bebebe;
+}
+
+.newExerciseForm {
+  max-width: 800px;
+  height: auto;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 30px;
+  border: 1px solid white;
+  box-shadow: 3px 3px 20px rgba(247, 241, 241, 0.5);
+}
+
+.form label {
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.form-container h1 {
+  text-align: center;
+  font-size: 30px;
+  color: #bebebe;
+}
+
+.form button {
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.customButton {
+  background: linear-gradient(45deg, orange, red);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Optional: Add border radius for rounded corners */
+}
+
+/* Optional: Add hover effect */
+.customButton:hover {
+  opacity: 0.8;
+  background: linear-gradient(45deg, orange, #ff0000);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Optional: Add border radius for rounded corners */
+}
