@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import DraggableList from "../components/DraggableList.jsx";
-import styles from "../styles/WorkoutPage.module.css";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import DraggableList from '../components/DraggableList.jsx';
+import styles from '../styles/WorkoutPage.module.css';
 
 const AllWorkoutsPage = () => {
   const [workouts, setWorkouts] = useState([]);
@@ -11,9 +11,7 @@ const AllWorkoutsPage = () => {
 
   const fetchWorkouts = async () => {
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/workouts`
-      );
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/workouts`);
       if (response.ok) {
         const workoutsData = await response.json();
         setWorkouts(workoutsData);
@@ -26,17 +24,13 @@ const AllWorkoutsPage = () => {
     }
   };
 
-  // Handle click on workout details
   const handleWorkoutDetailsClick = async (workoutId) => {
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/workouts/${workoutId}`
-      );
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/workouts/${workoutId}`);
       if (response.ok) {
         const workoutData = await response.json();
-        console.log("Fetched workout data:", workoutData); // Log fetched workout data
+        console.log('Fetched workout data:', workoutData);
 
-        // Fetch associated exercises for the workout
         const exercisesResponse = await Promise.all(
           workoutData.exercises.map((exerciseId) =>
             fetch(`${import.meta.env.VITE_API_URL}/api/exercises/${exerciseId}`)
@@ -44,52 +38,78 @@ const AllWorkoutsPage = () => {
         );
 
         if (exercisesResponse.every((res) => res.ok)) {
-          const exercisesData = await Promise.all(
-            exercisesResponse.map((res) => res.json())
-          );
-          console.log("Fetched exercises data:", exercisesData); // Log fetched exercises data
+          const exercisesData = await Promise.all(exercisesResponse.map((res) => res.json()));
+          console.log('Fetched exercises data:', exercisesData);
           setSelectedWorkout({
             ...workoutData,
             exercises: exercisesData,
           });
           setShowModal(true);
         } else {
-          throw new Error("Failed to fetch exercises");
+          throw new Error('Failed to fetch exercises');
         }
       } else {
-        throw new Error("Failed to fetch workout details");
+        throw new Error('Failed to fetch workout details');
       }
     } catch (error) {
       console.error(error);
-      setError("Failed to fetch workout details");
+      setError('Failed to fetch workout details');
     }
   };
 
-  // Handle workout deletion
   const handleWorkoutDelete = async (workoutId) => {
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/workouts/${workoutId}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/workouts/${workoutId}`, {
+        method: 'DELETE',
+      });
       if (response.ok) {
-        // Remove the deleted workout from the state
-        setWorkouts(workouts.filter((workout) => workout._id !== workoutId));
+        setWorkouts(workouts.filter(workout => workout._id !== workoutId));
       } else {
-        throw new Error("Failed to delete workout");
+        throw new Error('Failed to delete workout');
       }
     } catch (error) {
       console.error(error);
-      setError("Failed to delete workout");
+      setError('Failed to delete workout');
     }
   };
 
-  // Handle close modal
+  const handleExerciseDelete = async (exerciseId) => {
+    try {
+      // Delete the exercise from the workout on the frontend
+      const updatedExercises = selectedWorkout.exercises.filter(exercise => exercise._id !== exerciseId);
+      setSelectedWorkout(prevState => ({
+        ...prevState,
+        exercises: updatedExercises,
+      }));
+  
+      // Prepare the updated workout object with the modified exercises
+      const updatedWorkout = {
+        ...selectedWorkout,
+        exercises: updatedExercises.map(exercise => exercise._id),
+      };
+  
+      // Send a PUT request to update the workout on the backend
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/workouts/${selectedWorkout._id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedWorkout),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to update workout');
+      }
+    } catch (error) {
+      console.error(error);
+      setError('Failed to delete exercise');
+    }
+  };
+  
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
   useEffect(() => {
     fetchWorkouts();
   }, []);
@@ -106,38 +126,26 @@ const AllWorkoutsPage = () => {
         <p className={styles.noWorkouts}>No workouts found in database</p>
       ) : (
         <div className={styles.draggableContainer}>
-          <DraggableList
-            items={workouts.map((workout) => (
-              <div key={workout._id} className={styles.workoutItem}>
-                <p>{workout.name}</p>
-                <button onClick={() => handleWorkoutDetailsClick(workout._id)}>
-                  👀
-                </button>
-                <button onClick={() => handleWorkoutDelete(workout._id)}>
-                  ❌
-                </button>{" "}
-                {/* Delete button */}
-              </div>
-            ))}
-          />
+          <DraggableList items={workouts.map(workout => (
+            <div key={workout._id} className={styles.workoutItem}>
+              <p>{workout.name}</p>
+              <button onClick={() => handleWorkoutDetailsClick(workout._id)}>👀</button>
+              <button onClick={() => handleWorkoutDelete(workout._id)}>❌</button>
+            </div>
+          ))} />
         </div>
       )}
       {selectedWorkout && showModal && (
         <div className={styles.modalOverlay} onClick={handleCloseModal}>
-          <div className={styles.modal}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <h2>{selectedWorkout.name} WORKOUT</h2>
             <h3>Exercises:</h3>
             <div className={styles.exerciseGrid}>
-              {selectedWorkout.exercises.map((exercise) => (
+              {selectedWorkout.exercises.map(exercise => (
                 <div key={exercise._id} className={styles.exerciseItem}>
                   <p className={styles.exerciseName}>{exercise.name}</p>
-                  <p className={styles.exerciseDescription}>
-                    Target Muscle: {exercise.target_muscle}
-                  </p>
-                  <br></br>
-                  <p className={styles.exerciseDescription}>
-                    Sets: {exercise.sets[0].reps}
-                  </p>
+                  <p className={styles.exerciseDescription}>Target Muscle: {exercise.target_muscle}</p>
+                  <button onClick={() => handleExerciseDelete(exercise._id)}>❌</button>
                 </div>
               ))}
             </div>
@@ -149,3 +157,5 @@ const AllWorkoutsPage = () => {
 };
 
 export default AllWorkoutsPage;
+
+
