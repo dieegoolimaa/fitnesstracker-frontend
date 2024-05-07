@@ -103,8 +103,8 @@ const handleWorkoutDelete = async (workoutId) => {
           <DraggableList items={workouts.map(workout => (
             <div key={workout._id} className={styles.workoutItem}>
               <p>{workout.name}</p>
-              <button onClick={() => handleWorkoutDetailsClick(workout._id)}>Details</button>
-              <button onClick={() => handleWorkoutDelete(workout._id)}>Delete</button> {/* Delete button */}
+              <button onClick={() => handleWorkoutDetailsClick(workout._id)}>👀</button>
+              <button onClick={() => handleWorkoutDelete(workout._id)}>❌</button> {/* Delete button */}
             </div>
           ))} />
         </div>
