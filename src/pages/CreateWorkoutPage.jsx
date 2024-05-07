@@ -87,9 +87,7 @@ const CreateWorkoutPage = () => {
         </label>
         <div className="available-exercises">
           <h2>Available Exercises:</h2>
-          {/* Update exercise container to use grid layout */}
           <div className="exercise-container">
-            {/* Display available exercises with custom bars */}
             {availableExercises.map((exercise) => (
               <div key={exercise._id} className={`exercise-box ${exercise.selected ? 'selected' : ''}`} onClick={() => handleCheckboxChange(exercise._id)}>
                 <label htmlFor={`exercise-${exercise._id}`}>{exercise.name}</label>

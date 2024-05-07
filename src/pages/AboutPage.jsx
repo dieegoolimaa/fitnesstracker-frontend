@@ -50,7 +50,7 @@ const AboutPage = () => {
 
       <div className="team-members">
         <TeamMember
-          image={rui}
+          image="https://i.imgur.com/q9Kf8hH.jpeg"
           name="Rui Folgado"
           role="Developer"
           github="https://github.com/Folgad0"
@@ -62,7 +62,7 @@ const AboutPage = () => {
           role="Developer"
           github="https://github.com/dieegoolimaa"
           linkedin="https://www.linkedin.com/in/diego-fernandes-20/"
-          image={diego}
+          image="https://i.imgur.com/fTQ29dB.jpeg"
         />
 
         <TeamMember
@@ -70,7 +70,7 @@ const AboutPage = () => {
           role="Developer"
           github="https://github.com/kingblocks"
           linkedin="https://linkedin.com/in/kivanckeskinbora"
-          image={kivanc}
+          image="https://i.imgur.com/4Fgk6El.jpeg"
         />
       </div>
     </div>

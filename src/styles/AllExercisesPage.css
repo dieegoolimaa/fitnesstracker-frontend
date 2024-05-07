@@ -112,11 +112,4 @@ link {
   justify-content: center;
   margin-bottom: 1rem;
 }
-.images {
-  margin-top: 1rem;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+
