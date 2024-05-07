@@ -83,11 +83,6 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link className={style.link} to="/exercises">
-                  All Exercises
-                </Link>
-              </li>
-              <li>
                 <Link className={style.link} to="/about">
                   About
                 </Link>
