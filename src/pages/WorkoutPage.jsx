@@ -87,10 +87,8 @@ const handleWorkoutDelete = async (workoutId) => {
   useEffect(() => {
     fetchWorkouts();
   }, []);
+
   return (
-    <div className={styles.workoutContainer}>
-      <h1 className={styles.title}>All Workouts</h1>
-      <Link to="/create-workout" className={styles.createWorkoutLink}>
     <div className={styles.workoutContainer}>
       <h1 className={styles.title}>All Workouts</h1>
       <Link to="/create-workout" className={styles.createWorkoutLink}>
@@ -98,9 +96,7 @@ const handleWorkoutDelete = async (workoutId) => {
       </Link>
       {error ? (
         <p className={styles.error}>{error}</p>
-        <p className={styles.error}>{error}</p>
       ) : workouts.length === 0 ? (
-        <p className={styles.noWorkouts}>No workouts found in database</p>
         <p className={styles.noWorkouts}>No workouts found in database</p>
       ) : (
         <div className={styles.draggableContainer}>
@@ -138,7 +134,6 @@ const handleWorkoutDelete = async (workoutId) => {
 };
 
 export default AllWorkoutsPage;
-
 
 
 

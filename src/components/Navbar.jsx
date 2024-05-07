@@ -41,7 +41,7 @@ const Navbar = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link className={style.link} to="/workout">
+                      <Link className={style.link} to="/workouts">
                         Workout
                       </Link>
                     </li>
