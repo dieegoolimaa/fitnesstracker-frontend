@@ -11,26 +11,40 @@
   justify-content: center;
   align-items: center;
 }
+
 .modal {
-  background-color: rgb(100, 99, 99);
+  background-color: rgb(36, 35, 35);
   padding: 10px;
   border-radius: 15px;
   width: 700px; /* You may want to adjust this width as needed */
   height: 800px;
   overflow-y: auto; /* Enable vertical scrolling */
 }
-.modalButton:hover {
-  background-color: #45a049; /* Darker green on hover */
+
+.modalButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #cc5e04;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.modalButton:hover {
+  background-color: #cc5e04; /* Darker green on hover */
+}
+
 /* Container for exercise grid */
 .exerciseGrid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(200px, 1fr)
-  ); /* Adjust column width as needed */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust column width as needed */
   gap: 30px; /* Adjust gap between items */
 }
+
 /* Individual exercise item */
 .exerciseItem {
   padding: 30px;
@@ -38,15 +52,18 @@
   border-radius: 8px;
   margin: 1px;
 }
+
 /* Exercise name */
 .exerciseName {
   font-weight: bold;
 }
+
 /* Exercise description */
 .exerciseDescription {
   margin-top: 5px;
   color: #ddd;
 }
+
 /* Container for workouts */
 .workoutContainer {
   display: flex;
@@ -55,6 +72,7 @@
   justify-content: center;
   margin-top: 30px;
 }
+
 /* Header for workouts */
 .workoutHeader {
   display: flex;
@@ -62,9 +80,10 @@
   align-items: center;
   margin-bottom: 20px;
 }
+
 /* Link to create a new workout */
 .createWorkoutLink {
-  background-color: #4caf50;
+  background-color: #cc5e04;
   border: none;
   color: white;
   border-radius: 5px;
@@ -72,34 +91,51 @@
   padding: 10px 20px;
   text-decoration: none;
 }
+
 /* Link hover effect */
 .createWorkoutLink:hover {
-  background-color: #45a049; /* Darker green on hover */
-}
-/* Individual workout item */
-.workoutItem {
-  position: relative;
-  display: flex; /* Add flexbox */
-  align-items: center; /* Vertically center items */
-  margin-bottom: 10px; /* Add margin between items */
-}
-/* Paragraph for workout item */
-.workoutItem p {
-  flex: 1; /* Allow the paragraph to grow to fill available space */
-  margin-right: 10px; /* Add margin between paragraph and button */
-}
-/* Button for workout item */
-.workoutItem button {
-  padding: 10px 20px;
-  background-color: #e48832;
+  background-color: #965b2b;
   border: none;
   color: white;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 5px;
   transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  text-decoration: none;
 }
+
+
+/* Individual workout item */
+.workoutItem {
+position: relative;
+display: flex; /* Add flexbox */
+align-items: center; /* Vertically center items */
+margin-bottom: 10px; /* Increase margin between items */
+user-select: none;
+}
+
+/* Paragraph for workout item */
+.workoutItem p {
+flex: 1; /* Allow the paragraph to grow to fill available space */
+margin-right: 10px; /* Add margin between paragraph and buttons */
+}
+
+/* Button for workout item */
+.workoutItem button {
+padding: 10px 10px;
+background-color: #cc5e04;
+border: none;
+color: white;
+font-size: 16px;
+border-radius: 8px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
 /* Button hover effect */
 .workoutItem button:hover {
-  background-color: #f55c03; /* Darker green on hover */
+  background-color: #965b2b; /* Darker green on hover */
+}
+h2, h3 {
+  text-align: center;
+  padding: 40px;
 }

@@ -32,6 +32,7 @@ function App() {
         />
 
         <Route path="/exercises" element={<AllExercisesPage />} />
+        
 
         <Route
           path="/exercises/new"
