@@ -27,14 +27,10 @@
   margin-bottom: 10px;
 }
 
-.exercise-list li {
-  margin-bottom: 10px;
-}
-
 .create-workout-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff; /* Button background color */
+  background-color: #cc5e04; /* Button background color */
   color: #fff; /* Button text color */
   border: none;
   border-radius: 5px;
@@ -42,20 +38,31 @@
   font-size: 16px;
   cursor: pointer;
 }
-.exercise-container{
-  display: flex;
-  justify-content: space-between;
-}
-.exercise-box{
-  border: #cccccc 1px solid;
-  padding: 10px;
-  margin-bottom: 20px;
-  width: 200px;
-  height: 70px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  
+
+/* Update .exercise-container to use CSS Grid */
+.exercise-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust column width as needed */
+  gap: 20px; /* Adjust gap between items */
 }
 
+.exercise-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.exercise-box.selected {
+  background-color: orange;
+}
+
+.exercise-box label {
+  color: inherit; /* Use the parent's text color */
+  background-color: transparent; /* Set background color to transparent */
+}

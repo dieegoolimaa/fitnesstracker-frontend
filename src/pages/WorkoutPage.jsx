@@ -62,6 +62,24 @@ const handleWorkoutDetailsClick = async (workoutId) => {
   }
 };
 
+// Handle workout deletion
+const handleWorkoutDelete = async (workoutId) => {
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/workouts/${workoutId}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      // Remove the deleted workout from the state
+      setWorkouts(workouts.filter(workout => workout._id !== workoutId));
+    } else {
+      throw new Error('Failed to delete workout');
+    }
+  } catch (error) {
+    console.error(error);
+    setError('Failed to delete workout');
+  }
+};
+
   // Handle close modal
   const handleCloseModal = () => {
     setShowModal(false);
@@ -85,7 +103,8 @@ const handleWorkoutDetailsClick = async (workoutId) => {
           <DraggableList items={workouts.map(workout => (
             <div key={workout._id} className={styles.workoutItem}>
               <p>{workout.name}</p>
-              <button onClick={() => handleWorkoutDetailsClick(workout._id, workout.exercises)}>Details</button>
+              <button onClick={() => handleWorkoutDetailsClick(workout._id)}>Details</button>
+              <button onClick={() => handleWorkoutDelete(workout._id)}>Delete</button> {/* Delete button */}
             </div>
           ))} />
         </div>
@@ -93,19 +112,18 @@ const handleWorkoutDetailsClick = async (workoutId) => {
    {selectedWorkout && showModal && (
   <div className={styles.modalOverlay} onClick={handleCloseModal}>
     <div className={styles.modal}>
-      <h2>{selectedWorkout.name}</h2>
-      <p>Description: {selectedWorkout.description}</p>
+      <h2>{selectedWorkout.name}  WORKOUT</h2>
       <h3>Exercises:</h3>
       <div className={styles.exerciseGrid}>
         {selectedWorkout.exercises.map(exercise => (
           <div key={exercise._id} className={styles.exerciseItem}>
             <p className={styles.exerciseName}>{exercise.name}</p>
             <p className={styles.exerciseDescription}>Target Muscle: {exercise.target_muscle}</p>
-            <p className={styles.exerciseDescription}>Equipment: {exercise.equipment}</p>
+            <br></br>
+            <p className={styles.exerciseDescription}>Sets: {exercise.sets[0].reps}</p>
           </div>
         ))}
       </div>
-      <button className={styles.modalButton} onClick={handleCloseModal}>Close</button>
     </div>
   </div>
 )}
@@ -116,6 +134,7 @@ const handleWorkoutDetailsClick = async (workoutId) => {
 };
 
 export default AllWorkoutsPage;
+
 
 
 

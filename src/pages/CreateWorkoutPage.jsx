@@ -78,23 +78,19 @@ const CreateWorkoutPage = () => {
     <div className="form-container">
       <h1>Create a Workout</h1>
       <form onSubmit={handleSubmit}>
+        <br></br>
         <label>
-          Name:
+         <h1>Name:</h1> 
           <input value={name} onChange={(event) => setName(event.target.value)} required />
         </label>
         <div className="available-exercises">
           <h2>Available Exercises:</h2>
+          {/* Update exercise container to use grid layout */}
           <div className="exercise-container">
-            {/* Display available exercises with checkboxes */}
+            {/* Display available exercises with custom bars */}
             {availableExercises.map((exercise) => (
-              <div key={exercise._id} className="exercise-box">
+              <div key={exercise._id} className={`exercise-box ${exercise.selected ? 'selected' : ''}`} onClick={() => handleCheckboxChange(exercise._id)}>
                 <label htmlFor={`exercise-${exercise._id}`}>{exercise.name}</label>
-                <input
-                  type="checkbox"
-                  id={`exercise-${exercise._id}`}
-                  checked={exercise.selected}
-                  onChange={() => handleCheckboxChange(exercise._id)}
-                />
               </div>
             ))}
           </div>
@@ -106,6 +102,7 @@ const CreateWorkoutPage = () => {
 };
 
 export default CreateWorkoutPage;
+
 
 
 
