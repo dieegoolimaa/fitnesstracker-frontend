@@ -60,7 +60,7 @@ const AboutPage = () => {
         <TeamMember
           name="Diego Fernandes"
           role="Developer"
-          github="https://github.com/kingblocks"
+          github="https://github.com/dieegoolimaa"
           linkedin="https://www.linkedin.com/in/diego-fernandes-20/"
           image={diego}
         />
@@ -68,7 +68,7 @@ const AboutPage = () => {
         <TeamMember
           name="Kivanc Keskinbora"
           role="Developer"
-          github="https://github.com/dieegoolimaa"
+          github="https://github.com/kingblocks"
           linkedin="https://linkedin.com/in/kivanckeskinbora"
           image={kivanc}
         />

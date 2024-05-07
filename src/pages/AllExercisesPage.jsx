@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/AllExercisesPage.css";
+import { Link } from "react-router-dom";
 
 const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
@@ -52,6 +53,10 @@ const AllExercisesPage = () => {
         <p className="exerciseDescription">
           Below you will find a list of all exercises available for training.
         </p>
+      </div>
+
+      <div>
+        <Link to="/exercises/new">Create a exercise</Link>
       </div>
 
       <div className="exercise-search">
