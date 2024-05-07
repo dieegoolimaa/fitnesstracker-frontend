@@ -102,8 +102,7 @@ const AllExercisesPage = () => {
                     <h4>Sets</h4>
                     <div>
                       <p>
-                        {currentExercise.setsandreps.sets} x
-                        {currentExercise.setsandreps.reps}
+                      {currentExercise.setsandreps &&  `${currentExercise.setsandreps.sets} x ${currentExercise.setsandreps.reps}`}
                       </p>
                     </div>
                   </div>
