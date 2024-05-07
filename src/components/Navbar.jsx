@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className={style.navbarContainer}>
       <div className={style.logoContainer}>
         <img className={style.logo} src={logo} alt="logo" />
-        <h1 className={style.title}>Workout Tracker</h1>
+        <h1 className={style.title}>Fitness Tracker</h1>
       </div>
       <div>
         {token ? (
@@ -41,7 +41,7 @@ const Navbar = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link className={style.link} to="/workout">
+                      <Link className={style.link} to="/workouts">
                         Workout
                       </Link>
                     </li>
