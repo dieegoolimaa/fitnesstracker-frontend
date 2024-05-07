@@ -10,30 +10,36 @@ const AllExercisesPage = () => {
 
   const fetchExercises = async () => {
     try {
+      console.log("Fetching exercises...");
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/exercises`
       );
       if (response.ok) {
+        console.log("Exercises fetched successfully");
         const exercisesData = await response.json();
         setExercises(exercisesData);
+      } else {
+        console.log("Failed to fetch exercises:", response.status);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Error fetching exercises:", error);
     }
   };
+  
 
   useEffect(() => {
     fetchExercises();
   }, []);
 
   const handleExpandClick = (id) => {
-    setIsExpanded({ ...isExpanded, [id]: !isExpanded[id] });
+    setIsExpanded((prevState) => ({ ...prevState, [id]: !prevState[id] }));
+    console.log("Expanded state:", isExpanded);
   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       const exerciseList = document.querySelector(".exercise-list");
-      if (!exerciseList.contains(event.target)) {
+      if (exerciseList && !exerciseList.contains(event.target)) {
         setSelectedId(null);
         setIsExpanded({}); // Reset expanded state
       }
@@ -45,6 +51,18 @@ const AllExercisesPage = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    console.log("Exercises:", exercises);
+  }, [exercises]);
+
+  useEffect(() => {
+    console.log("Selected ID:", selectedId);
+  }, [selectedId]);
+
+  useEffect(() => {
+    console.log("Search term:", searchTerm);
+  }, [searchTerm]);
 
   return (
     <div className="exercise-page">
@@ -63,14 +81,14 @@ const AllExercisesPage = () => {
         <input
           type="text"
           placeholder="Search by target muscle"
-          onChange={(event) => setSearchTerm(event.target.value)} // Update search term on input change
+          onChange={(event) => setSearchTerm(event.target.value)}
         />
       </div>
 
       <div className="exercise-list">
         {exercises
           .filter((currentExercise) => {
-            // Filter based on search term (case-insensitive)
+            console.log("Current exercise:", currentExercise); // New logging here
             return (
               currentExercise.name
                 .toLowerCase()
@@ -102,21 +120,31 @@ const AllExercisesPage = () => {
                     <h4>Sets</h4>
                     <div>
                       <p>
-                      {currentExercise.setsandreps &&  `${currentExercise.setsandreps.sets} x ${currentExercise.setsandreps.reps}`}
+                        {currentExercise.sets.map((set, index) => (
+                          <span key={index}>
+                            {set.reps} x {set.weight}
+                          </span>
+                        ))}
                       </p>
                     </div>
                   </div>
                   <div className="images">
-                    {isExpanded[currentExercise._id] && ( // Check if expanded
+                    {isExpanded[currentExercise._id] && (
                       <div>
-                        <img
-                          src={currentExercise.image1}
-                          alt={currentExercise.name}
-                        />
-                        <img
-                          src={currentExercise.image1}
-                          alt={currentExercise.name}
-                        />
+              {Array.isArray(currentExercise.images) &&
+  currentExercise.images.map((imageUrl, index) => {
+    console.log("Fetching image:", imageUrl); // Logging here
+    return (
+      <img
+        key={index}
+        src={`${import.meta.env.VITE_API_URL}/images/${imageUrl}`}
+        alt={`${currentExercise.name} Image ${index + 1}`}
+      />
+    );
+  })}
+
+
+
                       </div>
                     )}
                     <button
@@ -138,3 +166,6 @@ const AllExercisesPage = () => {
 };
 
 export default AllExercisesPage;
+
+
+
