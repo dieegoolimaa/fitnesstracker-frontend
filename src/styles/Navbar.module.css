@@ -22,6 +22,10 @@ li {
   font-weight: bold;
 }
 
+.navbarContainer li {
+  cursor: pointer;
+}
+
 .navbarContainer li:hover {
   color: orangered;
 }
@@ -60,9 +64,8 @@ li {
   display: none;
   position: absolute;
   flex-direction: column;
-  text-align: start;
+  justify-content: flex-start;
   margin-top: 10px;
-  padding: 0;
   width: 100px;
   height: 110px;
   border-radius: 5px;

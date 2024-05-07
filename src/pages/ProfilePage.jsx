@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { SessionContext } from "../contexts/SessionContext";
-import "../styles/UserProfilePage.css";
+import style from "../styles/UserProfilePage.module.css";
 
 const ProfilePage = () => {
   const { token } = useContext(SessionContext); // Access the token from the context
@@ -36,38 +36,44 @@ const ProfilePage = () => {
   }, [token]); // Fetch user data whenever token changes
 
   return (
-    <div className="profile-container">
-      <h1>User Information</h1>
-      {userData && (
-        <ul className="profile-info">
-          <li>
-            <span>Name:</span> {userData.name}
-          </li>
-          <li>
-            <span>Email:</span> {userData.email}
-          </li>
-          <li>
-            <span>Age:</span> {userData.age}
-          </li>
-          <li>
-            <span>Gender:</span> {userData.gender}
-          </li>
-          <li>
-            <span>Height:</span> {userData.height}
-          </li>
-          <li>
-            <span>Weight:</span> {userData.weight}
-          </li>
-          <li>
-            <span>Workout Frequency:</span> {userData.workoutFrequency}
-          </li>
-          {userData.isInstructor && (
-            <li>
-              <span>Is Instructor:</span> Yes
-            </li>
+    <div className={style.profileContainer}>
+      <div>
+        <div className={style.profileHeader}>
+          <h1>User Information</h1>
+        </div>
+        <div className={style.profileInfo}>
+          {userData && (
+            <ul className="profile-info">
+              <li>
+                <b>Name:</b> {userData.name}
+              </li>
+              <li>
+                <b>Email:</b> {userData.email}
+              </li>
+              <li>
+                <b>Age:</b> {userData.age}
+              </li>
+              <li>
+                <b>Gender:</b> {userData.gender}
+              </li>
+              <li>
+                <b>Height:</b> {userData.height}
+              </li>
+              <li>
+                <b>Weight:</b> {userData.weight}
+              </li>
+              <li>
+                <b>Workout Frequency:</b> {userData.workoutFrequency}
+              </li>
+              {userData.isInstructor && (
+                <li>
+                  <b>Is Instructor:</b> Yes
+                </li>
+              )}
+            </ul>
           )}
-        </ul>
-      )}
+        </div>
+      </div>
     </div>
   );
 };

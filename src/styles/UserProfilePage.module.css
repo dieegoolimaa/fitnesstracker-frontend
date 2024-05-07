@@ -1,0 +1,26 @@
+.profileContainer {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  font-family: poppins;
+}
+
+.profileHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profileContainer li {
+  list-style: none;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.profileInfo {
+  border: 1px solid white;
+  border-radius: 30px;
+  box-shadow: 3px 3px 20px rgba(247, 241, 241, 0.5);
+  padding: 20px;
+}
