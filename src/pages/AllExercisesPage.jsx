@@ -56,7 +56,7 @@ const AllExercisesPage = () => {
       </div>
 
       <div>
-        <Link to="/exercise-new">Create a exercise</Link>
+        <Link to="/exercises/new">Create a exercise</Link>
       </div>
 
       <div className="exercise-search">
@@ -102,7 +102,8 @@ const AllExercisesPage = () => {
                     <h4>Sets</h4>
                     <div>
                       <p>
-                      {currentExercise.setsandreps &&  `${currentExercise.setsandreps.sets} x ${currentExercise.setsandreps.reps}`}
+                        {currentExercise.setsandreps &&
+                          `${currentExercise.setsandreps.sets} x ${currentExercise.setsandreps.reps}`}
                       </p>
                     </div>
                   </div>
