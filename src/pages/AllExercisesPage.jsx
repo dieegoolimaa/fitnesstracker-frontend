@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "../styles/AllExercisesPage.css";
 import { Link } from "react-router-dom";
 
-
 const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
@@ -57,7 +56,7 @@ const AllExercisesPage = () => {
       </div>
 
       <div>
-        <Link to="/exercises/new">Create a exercise</Link>
+        <Link to="/exercise-new">Create a exercise</Link>
       </div>
 
       <div className="exercise-search">
@@ -103,7 +102,8 @@ const AllExercisesPage = () => {
                     <h4>Sets</h4>
                     <div>
                       <p>
-                      {currentExercise.setsandreps ? `${currentExercise.setsandreps.sets} x ${currentExercise.sets[0].reps}` : ''}
+                        {currentExercise.setsandreps.sets} x
+                        {currentExercise.setsandreps.reps}
                       </p>
                     </div>
                   </div>
