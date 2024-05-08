@@ -79,25 +79,3 @@ link:hover {
   font-size: 1.1rem;
   text-align: left;
 }
-
-/* 
-.customButton {
-  background: linear-gradient(45deg, orange, red);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px; 
-}
-
-/* .customButton:hover {
-  opacity: 0.8;
-  background: linear-gradient(45deg, orange, #ff0000);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-} */

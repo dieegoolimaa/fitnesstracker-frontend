@@ -50,3 +50,9 @@ label {
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .formContainer {
+    margin-bottom: 30px;
+  }
+}

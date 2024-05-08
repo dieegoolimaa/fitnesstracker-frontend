@@ -47,3 +47,10 @@ form {
   justify-content: center;
   margin-top: 20px;
 }
+
+@media (max-width: 768px) {
+  .loginForm {
+    width: 400px;
+    height: 280px;
+  }
+}
