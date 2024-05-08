@@ -11,3 +11,14 @@
   height: 100%;
   transition: transform 0.5s ease-in-out;
 }
+
+@media (max-width: 768px) {
+  .carousel {
+    height: auto;
+  }
+
+  .carousel img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
