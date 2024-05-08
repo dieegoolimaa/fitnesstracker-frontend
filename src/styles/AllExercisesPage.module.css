@@ -1,23 +1,51 @@
-.exercise-title {
-  margin: 20px;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-/* 
-.exercise-page {
+.exercisePage {
   margin: 0 auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-} */
+}
 
-.exercise-list {
+.exerciseTitle {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.createExercise {
+  margin: 20px;
+  text-align: center;
+}
+
+.exerciseSearch {
+  background: transparent;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+.exerciseSearch input {
+  background: transparent;
+  border-bottom: 3px solid orangered;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.exerciseList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exerciseName {
+  text-align: center;
+  font-weight: bold;
+  padding: 0px;
+  background: transparent;
 }
 
 .exercise-item {
@@ -50,50 +78,15 @@
   background-color: #807b7b;
 }
 
-.exercise-page h2 {
-  background: transparent;
-  text-align: center;
-}
-
 .exercise-item h2 {
   color: orangered;
   font-weight: bold;
+  padding: 0px;
 }
 
 .exerciseDescription {
   background: transparent;
   text-align: justify;
   padding: 0.5rem;
-}
-
-link {
-  text-decoration: none;
-}
-
-.setandReps {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  background: transparent;
-  border-radius: 10px;
-  padding: 0.5rem;
-}
-
-.images {
-  margin-top: 1rem;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.exercise-search {
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
+  font-weight: bo;
 }
