@@ -37,7 +37,7 @@ const Navbar = () => {
         <img className={style.logo} src={logo} alt="logo" />
         <h1 className={style.title}>Fitness Tracker</h1>
       </div>
-      <div>
+      <div className={style.navbarItems}>
         {token ? (
           <>
             <ul>
@@ -46,7 +46,8 @@ const Navbar = () => {
                   HOME
                 </Link>
               </li>
-              <li onClick={handleClick}>
+              <div></div>
+              <li className={style.userButton} onClick={handleClick}>
                 USER
                 {dropdownOpen && (
                   <ul className={style.dropdown} ref={dropdownRef}>
