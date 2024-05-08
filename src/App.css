@@ -6,3 +6,8 @@
   background-color: #313030;
   color: rgb(255, 255, 255);
 }
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
