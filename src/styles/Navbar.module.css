@@ -46,13 +46,14 @@
 }
 
 .dropdown {
+  background: tran;
   display: none;
   position: absolute;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 10px;
-  width: 200px;
-  height: 110px;
+  justify-content: center;
+  margin-top: 50px;
+  width: 130px;
+  height: 140px;
   border-radius: 5px;
   box-shadow: 3px 3px 20px rgba(247, 241, 241, 0.5);
   border: 0.5px solid white;

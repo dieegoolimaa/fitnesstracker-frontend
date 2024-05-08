@@ -51,25 +51,27 @@ const Navbar = () => {
                 USER
                 {dropdownOpen && (
                   <ul className={style.dropdown} ref={dropdownRef}>
-                    <li>
-                      <Link className={style.link} to="/profile">
-                        PROFILE
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className={style.link} to="/workouts">
-                        WORKOUT
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className={style.link}
-                        to="/"
-                        onClick={handleLogout}
-                      >
-                        LOGOUT
-                      </Link>
-                    </li>
+                    <div>
+                      <li>
+                        <Link className={style.link} to="/profile">
+                          PROFILE
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className={style.link} to="/workouts">
+                          WORKOUT
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          className={style.link}
+                          to="/"
+                          onClick={handleLogout}
+                        >
+                          LOGOUT
+                        </Link>
+                      </li>
+                    </div>
                   </ul>
                 )}
               </li>

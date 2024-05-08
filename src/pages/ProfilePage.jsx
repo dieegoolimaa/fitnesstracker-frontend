@@ -44,7 +44,7 @@ const ProfilePage = () => {
   const handlePasswordChangeSuccess = () => {
     setShowPasswordChange(false); // Hide the password change form after successful password change
   };
-  
+
   return (
     <div className={style.profileContainer}>
       <div>
@@ -77,26 +77,28 @@ const ProfilePage = () => {
               </li>
               {userData.isInstructor && (
                 <li>
-                  <b>Is Instructor:</b> Yes
+                  <b>Instructor:</b> Yes
                 </li>
               )}
             </ul>
           )}
         </div>
-        </div>
+      </div>
       {/* Render the PasswordChange component only if showPasswordChange is true */}
       {showPasswordChange && (
         <PasswordChange onSuccess={handlePasswordChangeSuccess} />
       )}
       {/* Button to show the password change form */}
       {!showPasswordChange && (
-        <button onClick={handleShowPasswordChange}>Change Password</button>
+        <button
+          className={style.passwordChangeBtn}
+          onClick={handleShowPasswordChange}
+        >
+          Change Password
+        </button>
       )}
     </div>
   );
 };
 
 export default ProfilePage;
-
-
-
