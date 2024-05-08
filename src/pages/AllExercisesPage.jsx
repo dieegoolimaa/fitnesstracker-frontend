@@ -8,37 +8,56 @@ const AllExercisesPage = () => {
   const [selectedId, setSelectedId] = useState(null);
   const [isExpanded, setIsExpanded] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
-  const { token, withToken } = useContext(SessionContext);
-  const [isInstructor, setIsInstructor] = useState(false);
+  const [userProfile, setUserProfile] = useState(null); // State to store user profile data
 
   const fetchExercises = async () => {
     try {
       console.log("Fetching exercises...");
-      const data = await withToken("/exercises");
-      console.log(data);
-      setExercises(data);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/exercises`
+      );
+      if (response.ok) {
+        console.log("Exercises fetched successfully");
+        const exercisesData = await response.json();
+        setExercises(exercisesData);
+      } else {
+        console.log("Failed to fetch exercises:", response.status);
+      }
     } catch (error) {
-      console.log("Error fetching exercises:", error);
+      console.error(error);
     }
   };
 
   const fetchUserProfile = async () => {
     try {
-      const data = await withToken("/profile");
-      console.log("User profile:", data);
-      setIsInstructor(data.isInstructor);
+      const token = localStorage.getItem('authToken'); // Assuming token is stored in localStorage
+      if (!token) return;
+
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/profile`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const profileData = await response.json();
+        setUserProfile(profileData);
+      } else {
+        console.error('Error fetching user profile:', response.status);
+      }
     } catch (error) {
-      console.log("Error fetching user profile:", error);
+      console.error(error);
     }
   };
 
   useEffect(() => {
     fetchExercises();
-    fetchUserProfile();
+    fetchUserProfile(); // Fetch profile data on component mount
   }, []);
 
   const handleExpandClick = (id) => {
     setIsExpanded((prevState) => ({ ...prevState, [id]: !prevState[id] }));
+    console.log("Expanded state:", isExpanded);
   };
 
   useEffect(() => {
@@ -57,6 +76,15 @@ const AllExercisesPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+  }, [exercises]);
+
+  useEffect(() => {
+  }, [selectedId]);
+
+  useEffect(() => {
+  }, [searchTerm]);
+
   return (
     <div className="exercise-page">
       <div className="exercise-title">
@@ -66,7 +94,7 @@ const AllExercisesPage = () => {
         </p>
       </div>
 
-      {isInstructor && (
+      {userProfile && userProfile.isInstructor && (
         <div>
           <Link to="/exercises/new">Create a exercise</Link>
         </div>
@@ -83,6 +111,7 @@ const AllExercisesPage = () => {
       <div className="exercise-list">
         {exercises
           .filter((currentExercise) => {
+            console.log("Current exercise:", currentExercise);
             return (
               currentExercise.name
                 .toLowerCase()
@@ -154,4 +183,3 @@ const AllExercisesPage = () => {
 };
 
 export default AllExercisesPage;
-
