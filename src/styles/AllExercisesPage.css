@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  padding-bottom: 50px;
 }
 
 .exercise-title {
@@ -59,7 +60,7 @@
 .exerciseDescription {
   background: transparent;
   text-align: justify;
-  margin-bottom: 1rem;
+  margin: 1rem;
   font-weight: bold;
 }
 
@@ -137,4 +138,26 @@
   text-align: center;
   font-size: 1.5rem;
   font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .exercise-item {
+    max-width: 400px;
+  }
+
+  .exercise-item:not(.selected) {
+    max-width: 400px;
+  }
+
+  .exercise-item.selected {
+    max-width: 400px;
+  }
+
+  .images-container {
+    width: 320px;
+  }
+
+  .images-container img {
+    width: 150px;
+  }
 }

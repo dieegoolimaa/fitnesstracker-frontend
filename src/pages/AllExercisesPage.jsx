@@ -1,7 +1,6 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import "../styles/AllExercisesPage.css";
 import { Link } from "react-router-dom";
-
 
 const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
@@ -30,20 +29,23 @@ const AllExercisesPage = () => {
 
   const fetchUserProfile = async () => {
     try {
-      const token = localStorage.getItem('authToken'); // Assuming token is stored in localStorage
+      const token = localStorage.getItem("authToken"); // Assuming token is stored in localStorage
       if (!token) return;
 
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/profile`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/auth/profile`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         const profileData = await response.json();
         setUserProfile(profileData);
       } else {
-        console.error('Error fetching user profile:', response.status);
+        console.error("Error fetching user profile:", response.status);
       }
     } catch (error) {
       console.error(error);
@@ -76,21 +78,19 @@ const AllExercisesPage = () => {
     };
   }, []);
 
-  useEffect(() => {
-  }, [exercises]);
+  useEffect(() => {}, [exercises]);
 
-  useEffect(() => {
-  }, [selectedId]);
+  useEffect(() => {}, [selectedId]);
 
-  useEffect(() => {
-  }, [searchTerm]);
+  useEffect(() => {}, [searchTerm]);
 
   return (
     <div className="exercise-page">
       <div className="exercise-title">
         <h1>EXERCISES</h1>
         <p className="exerciseDescription">
-          Below you will find a list of all exercises available for training.
+          Below you will find a list of all <br />
+          exercises available for training.
         </p>
       </div>
 
