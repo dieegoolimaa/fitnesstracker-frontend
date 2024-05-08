@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import logo from "../assets/training.png";
 import { Link } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext.jsx";
@@ -7,6 +7,7 @@ import style from "../styles/Navbar.module.css";
 const Navbar = () => {
   const { token, setToken } = useContext(SessionContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const handleLogout = () => {
     setToken(null);
@@ -15,6 +16,20 @@ const Navbar = () => {
   const handleClick = () => {
     setDropdownOpen(!dropdownOpen); // Toggle dropdown visibility
   };
+
+  const handleOutsideClick = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <div className={style.navbarContainer}>
@@ -34,7 +49,7 @@ const Navbar = () => {
               <li onClick={handleClick}>
                 USER
                 {dropdownOpen && (
-                  <ul className={style.dropdown}>
+                  <ul className={style.dropdown} ref={dropdownRef}>
                     <li>
                       <Link className={style.link} to="/profile">
                         PROFILE
