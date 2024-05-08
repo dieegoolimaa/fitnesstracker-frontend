@@ -21,23 +21,6 @@
   overflow-y: auto; /* Enable vertical scrolling */
 }
 
-/* .modalButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #cc5e04;
-  border: none;
-  color: white;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.modalButton:hover {
-  background-color: #cc5e04;
-} */
-
 .exerciseGrid {
   display: grid;
   grid-template-columns: repeat(
@@ -119,21 +102,6 @@
   flex: 1; /* Allow the paragraph to grow to fill available space */
   margin-right: 10px; /* Add margin between paragraph and buttons */
 }
-
-/* .workoutItem button {
-padding: 10px 10px;
-background-color: #cc5e04;
-border: none;
-color: white;
-font-size: 16px;
-border-radius: 8px;
-cursor: pointer;
-transition: background-color 0.3s ease;
-}
-
-.workoutItem button:hover {
-  background-color: #965b2b; 
-} */
 
 h2,
 h3 {
