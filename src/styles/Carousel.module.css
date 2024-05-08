@@ -11,28 +11,3 @@
   height: 100%;
   transition: transform 0.5s ease-in-out;
 }
-
-.carousel button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.carousel button:hover {
-  opacity: 0.7;
-}
-
-.carousel button:first-child {
-  left: 10px;
-}
-
-.carousel button:last-child {
-  right: 10px; /* Position right button */
-}

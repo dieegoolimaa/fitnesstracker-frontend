@@ -26,23 +26,25 @@
   font-size: 20px;
   margin-bottom: 10px;
 }
-
+/* 
 .create-workout-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #cc5e04; /* Button background color */
-  color: #fff; /* Button text color */
+  background-color: #cc5e04;
+  color: #fff; 
   border: none;
   border-radius: 5px;
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
-}
+} */
 
-/* Update .exercise-container to use CSS Grid */
 .exercise-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust column width as needed */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Adjust column width as needed */
   gap: 20px; /* Adjust gap between items */
 }
 

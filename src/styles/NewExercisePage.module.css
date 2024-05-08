@@ -55,7 +55,7 @@ body {
   color: #bebebe;
 }
 
-.form button {
+/* .form button {
   display: block;
   margin-top: 20px;
   width: 100%;
@@ -63,19 +63,18 @@ body {
   border: none;
   font-size: 16px;
   cursor: pointer;
-}
+} */
 
-.customButton {
+/* .customButton {
   background: linear-gradient(45deg, orange, red);
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 5px; /* Optional: Add border radius for rounded corners */
+  border-radius: 5px;
 }
 
-/* Optional: Add hover effect */
 .customButton:hover {
   opacity: 0.8;
   background: linear-gradient(45deg, orange, #ff0000);
@@ -84,5 +83,5 @@ body {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 5px; /* Optional: Add border radius for rounded corners */
-}
+  border-radius: 5px;
+} */

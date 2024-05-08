@@ -70,7 +70,7 @@ link {
   text-decoration: none;
 }
 
-.expand-button {
+/* .expand-button {
   background-color: transparent;
   border: none;
   color: #bebebe;
@@ -83,7 +83,7 @@ link {
 
 .expand-button:hover {
   color: #fff;
-}
+} */
 
 .setandReps {
   display: flex;
@@ -112,4 +112,3 @@ link {
   justify-content: center;
   margin-bottom: 1rem;
 }
-

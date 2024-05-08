@@ -9,6 +9,7 @@
   border: 1px solid white;
   border-radius: 30px;
   box-shadow: 3px 3px 20px rgba(247, 241, 241, 0.5);
+  padding: 0px 10px;
 }
 
 .imageContainer {
