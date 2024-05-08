@@ -63,3 +63,13 @@ li {
   box-shadow: 3px 3px 20px rgba(247, 241, 241, 0.5);
   border: 1px solid white;
 }
+
+@media (max-width: 768px) {
+  .link {
+    font-size: 0.9rem;
+  }
+
+  .link:hover {
+    font-size: 0.9rem;
+  }
+}

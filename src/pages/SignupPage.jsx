@@ -47,11 +47,11 @@ const SignupPage = () => {
         navigate("/login");
       } else {
         const { message } = await response.json();
-        setError(message); 
+        setError(message);
       }
     } catch (error) {
       console.error("Failed to sign up:", error.message);
-      setError("Failed to sign up. Please try again."); 
+      setError("Failed to sign up. Please try again.");
     }
   };
 
