@@ -79,7 +79,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link className={style.link} to="/login">
-                  LOG IN
+                  LOGIN
                 </Link>
               </li>
               <li>
