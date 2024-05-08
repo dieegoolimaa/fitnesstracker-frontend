@@ -46,13 +46,12 @@ const SignupPage = () => {
       if (response.status === 201) {
         navigate("/login");
       } else {
-        // Get error message from response body
         const { message } = await response.json();
-        setError(message); // Set error state
+        setError(message); 
       }
     } catch (error) {
       console.error("Failed to sign up:", error.message);
-      setError("Failed to sign up. Please try again."); // Set error state
+      setError("Failed to sign up. Please try again."); 
     }
   };
 
@@ -86,7 +85,6 @@ const SignupPage = () => {
     <div className={style.signupContainer}>
       <h1 className={style.signupTitle}>Sign Up</h1>
       {error && <p className="error-message">{error}</p>}{" "}
-      {/* Display error message */}
       <div className={style.formContainer}>
         <form onSubmit={handleSubmit}>
           <TextInput

@@ -130,23 +130,18 @@ const AllExercisesPage = () => {
                   </div>
                   <div className="images">
                   {isExpanded[currentExercise._id] && (
-  <div className="imagescontainer">
-    <img
-      src={currentExercise['image-1']} 
-      alt={`${currentExercise.name} Image`}
-    />
-    <img
-      src={currentExercise['image-2']}
-      alt={`${currentExercise.name} Image`}
-    />
-  </div>
-  
-)}
-               
+                   <div className="imagescontainer">
+                    <img
+                       src={currentExercise['image-1']} 
+                        alt={`${currentExercise.name} Image`} />
+                   <img
+                   src={currentExercise['image-2']}
+                   alt={`${currentExercise.name} Image`}/>
+                   </div>
+                    )}      
                     <button
                       className="expand-button"
-                      onClick={() => handleExpandClick(currentExercise._id)}
-                    >
+                      onClick={() => handleExpandClick(currentExercise._id)}>
                       {isExpanded[currentExercise._id]
                         ? "Hide exercise"
                         : "See exercise"}

@@ -25,7 +25,7 @@ const NewExercisePage = () => {
     };
 
     withToken("/exercises", "POST", payload);
-    // Redirect to exercises page after successful creation
+
     navigate("/exercises");
   };
 

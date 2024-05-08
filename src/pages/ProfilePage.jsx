@@ -3,26 +3,25 @@ import { SessionContext } from "../contexts/SessionContext";
 import style from "../styles/UserProfilePage.module.css";
 
 const ProfilePage = () => {
-  const { token } = useContext(SessionContext); // Access the token from the context
+  const { token } = useContext(SessionContext); 
 
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // Fetch user data from your backend API
+        // Fetch user data from backend 
         const response = await fetch(
           `${import.meta.env.VITE_API_URL}/auth/profile`,
           {
             method: "GET",
             headers: {
-              Authorization: `Bearer ${token}`, // Use the token from context
+              Authorization: `Bearer ${token}`, 
             },
           }
         );
         if (response.ok) {
           const data = await response.json();
-          console.log(data); // Add this line
           setUserData(data);
         } else {
           console.error("Failed to fetch user data:", response.statusText);
@@ -33,7 +32,7 @@ const ProfilePage = () => {
     };
 
     fetchUserData();
-  }, [token]); // Fetch user data whenever token changes
+  }, [token]); 
 
   return (
     <div className={style.profileContainer}>

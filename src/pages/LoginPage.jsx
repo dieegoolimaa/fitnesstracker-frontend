@@ -23,7 +23,7 @@ const LoginPage = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, password }), // Send email instead of username
+          body: JSON.stringify({ email, password }), 
         }
       );
 
@@ -35,11 +35,11 @@ const LoginPage = () => {
       } else {
         // Get error message from response body
         const { message } = await response.json();
-        setError(message); // Set error state
+        setError(message); 
       }
     } catch (error) {
       console.error("Failed to log in:", error.message);
-      setError("Failed to log in. Please try again."); // Set error state
+      setError("Failed to log in. Please try again."); 
     }
   };
 
@@ -76,7 +76,6 @@ const LoginPage = () => {
           </button>
         </div>
         {error && <p className="error-message">{error}</p>}{" "}
-        {/* Display error message */}
       </form>
       <div className={style.signupContainer}>
         <p>Do not have an account?</p>

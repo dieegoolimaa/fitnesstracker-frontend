@@ -33,8 +33,6 @@ const AllWorkoutsPage = () => {
       );
       if (response.ok) {
         const workoutData = await response.json();
-        console.log("Fetched workout data:", workoutData);
-
         const exercisesResponse = await Promise.all(
           workoutData.exercises.map((exerciseId) =>
             fetch(`${import.meta.env.VITE_API_URL}/api/exercises/${exerciseId}`)
@@ -45,7 +43,6 @@ const AllWorkoutsPage = () => {
           const exercisesData = await Promise.all(
             exercisesResponse.map((res) => res.json())
           );
-          console.log("Fetched exercises data:", exercisesData);
           setSelectedWorkout({
             ...workoutData,
             exercises: exercisesData,
@@ -84,7 +81,7 @@ const AllWorkoutsPage = () => {
 
   const handleExerciseDelete = async (exerciseId) => {
     try {
-      // Delete the exercise from the workout on the frontend
+      //remove an exercise
       const updatedExercises = selectedWorkout.exercises.filter(
         (exercise) => exercise._id !== exerciseId
       );
@@ -99,7 +96,7 @@ const AllWorkoutsPage = () => {
         exercises: updatedExercises.map((exercise) => exercise._id),
       };
 
-      // Send a PUT request to update the workout on the backend
+      // PUT request to update the workout on the backend
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/workouts/${selectedWorkout._id}`,
         {
