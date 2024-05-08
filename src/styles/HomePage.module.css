@@ -11,3 +11,9 @@
 .title br {
   display: none;
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.7rem;
+  }
+}

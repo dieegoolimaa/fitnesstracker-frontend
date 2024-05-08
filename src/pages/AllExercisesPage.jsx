@@ -66,7 +66,7 @@ const AllExercisesPage = () => {
   return (
     <div className="exercise-page">
       <div className="exercise-title">
-        <h1>All Exercises</h1>
+        <h1>EXERCISES</h1>
         <p className="exerciseDescription">
           Below you will find a list of all exercises available for training.
         </p>
@@ -128,19 +128,22 @@ const AllExercisesPage = () => {
                     </div>
                   </div>
                   <div className="images">
-                  {isExpanded[currentExercise._id] && (
-                   <div className="imagescontainer">
-                    <img
-                       src={currentExercise['image-1']} 
-                        alt={`${currentExercise.name} Image`} />
-                   <img
-                   src={currentExercise['image-2']}
-                   alt={`${currentExercise.name} Image`}/>
-                   </div>
-                    )}      
+                    {isExpanded[currentExercise._id] && (
+                      <div className="imagescontainer">
+                        <img
+                          src={currentExercise["image-1"]}
+                          alt={`${currentExercise.name} Image`}
+                        />
+                        <img
+                          src={currentExercise["image-2"]}
+                          alt={`${currentExercise.name} Image`}
+                        />
+                      </div>
+                    )}
                     <button
                       className="expand-button"
-                      onClick={() => handleExpandClick(currentExercise._id)}>
+                      onClick={() => handleExpandClick(currentExercise._id)}
+                    >
                       {isExpanded[currentExercise._id]
                         ? "Hide exercise"
                         : "See exercise"}

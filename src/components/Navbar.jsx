@@ -28,21 +28,21 @@ const Navbar = () => {
             <ul>
               <li>
                 <Link className={style.link} to="/">
-                  Home
+                  HOME
                 </Link>
               </li>
               <li onClick={handleClick}>
-                User
+                USER
                 {dropdownOpen && (
                   <ul className={style.dropdown}>
                     <li>
                       <Link className={style.link} to="/profile">
-                        Profile
+                        PROFILE
                       </Link>
                     </li>
                     <li>
                       <Link className={style.link} to="/workouts">
-                        Workout
+                        WORKOUT
                       </Link>
                     </li>
                     <li>
@@ -51,7 +51,7 @@ const Navbar = () => {
                         to="/"
                         onClick={handleLogout}
                       >
-                        Logout
+                        LOGOUT
                       </Link>
                     </li>
                   </ul>
@@ -59,12 +59,12 @@ const Navbar = () => {
               </li>
               <li>
                 <Link className={style.link} to="/exercises">
-                  All Exercises
+                  EXERCISES
                 </Link>
               </li>
               <li>
                 <Link className={style.link} to="/about">
-                  About
+                  ABOUT
                 </Link>
               </li>
             </ul>
@@ -74,17 +74,17 @@ const Navbar = () => {
             <ul>
               <li>
                 <Link className={style.link} to="/">
-                  Home
+                  HOME
                 </Link>
               </li>
               <li>
                 <Link className={style.link} to="/login">
-                  Log in
+                  LOG IN
                 </Link>
               </li>
               <li>
                 <Link className={style.link} to="/about">
-                  About
+                  ABOUT
                 </Link>
               </li>
             </ul>
