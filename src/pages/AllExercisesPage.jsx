@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import "../styles/AllExercisesPage.css";
 import { Link } from "react-router-dom";
-import { SessionContext } from "../contexts/SessionContext";
+
 
 const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
