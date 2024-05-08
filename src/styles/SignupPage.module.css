@@ -6,7 +6,6 @@
 }
 
 .signupTitle {
-  margin-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -28,7 +27,7 @@ form {
 }
 
 input {
-  margin-top: 10px;
+  margin-top: 5px;
   width: 100%;
   background-color: white;
   color: black;
