@@ -1,38 +1,44 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import "../styles/AllExercisesPage.css";
 import { Link } from "react-router-dom";
+import { SessionContext } from "../contexts/SessionContext";
 
 const AllExercisesPage = () => {
   const [exercises, setExercises] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
   const [isExpanded, setIsExpanded] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
+  const { token, withToken } = useContext(SessionContext);
+  const [isInstructor, setIsInstructor] = useState(false);
 
   const fetchExercises = async () => {
     try {
       console.log("Fetching exercises...");
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/exercises`
-      );
-      if (response.ok) {
-        console.log("Exercises fetched successfully");
-        const exercisesData = await response.json();
-        setExercises(exercisesData);
-      } else {
-        console.log("Failed to fetch exercises:", response.status);
-      }
+      const data = await withToken("/exercises");
+      console.log(data);
+      setExercises(data);
     } catch (error) {
       console.log("Error fetching exercises:", error);
     }
   };
 
+  const fetchUserProfile = async () => {
+    try {
+      const data = await withToken("/profile");
+      console.log("User profile:", data);
+      setIsInstructor(data.isInstructor);
+    } catch (error) {
+      console.log("Error fetching user profile:", error);
+    }
+  };
+
   useEffect(() => {
     fetchExercises();
+    fetchUserProfile();
   }, []);
 
   const handleExpandClick = (id) => {
     setIsExpanded((prevState) => ({ ...prevState, [id]: !prevState[id] }));
-    console.log("Expanded state:", isExpanded);
   };
 
   useEffect(() => {
@@ -51,18 +57,6 @@ const AllExercisesPage = () => {
     };
   }, []);
 
-  useEffect(() => {
-    console.log("Exercises:", exercises);
-  }, [exercises]);
-
-  useEffect(() => {
-    console.log("Selected ID:", selectedId);
-  }, [selectedId]);
-
-  useEffect(() => {
-    console.log("Search term:", searchTerm);
-  }, [searchTerm]);
-
   return (
     <div className="exercise-page">
       <div className="exercise-title">
@@ -72,9 +66,11 @@ const AllExercisesPage = () => {
         </p>
       </div>
 
-      <div>
-        <Link to="/exercises/new">Create a exercise</Link>
-      </div>
+      {isInstructor && (
+        <div>
+          <Link to="/exercises/new">Create a exercise</Link>
+        </div>
+      )}
 
       <div className="exercise-search">
         <input
@@ -87,7 +83,6 @@ const AllExercisesPage = () => {
       <div className="exercise-list">
         {exercises
           .filter((currentExercise) => {
-            console.log("Current exercise:", currentExercise);
             return (
               currentExercise.name
                 .toLowerCase()
@@ -159,3 +154,4 @@ const AllExercisesPage = () => {
 };
 
 export default AllExercisesPage;
+
