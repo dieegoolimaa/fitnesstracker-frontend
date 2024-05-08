@@ -73,7 +73,7 @@ const AllExercisesPage = () => {
       </div>
 
       <div>
-        <Link to="/exercise/new">Create a exercise</Link>
+        <Link to="/exercises/new">Create a exercise</Link>
       </div>
 
       <div className="exercise-search">
