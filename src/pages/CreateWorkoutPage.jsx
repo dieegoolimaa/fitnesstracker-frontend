@@ -9,7 +9,7 @@ const CreateWorkoutPage = () => {
   const [name, setName] = useState("");
   const [availableExercises, setAvailableExercises] = useState([]);
 
-  // Fetch available exercises when component mounts
+  // Fetch available exercises 
   useEffect(() => {
     fetchAvailableExercises();
   }, []);
@@ -23,13 +23,11 @@ const CreateWorkoutPage = () => {
         throw new Error("Failed to fetch exercises");
       }
       const exercisesData = await response.json();
-      console.log("Exercises data:", exercisesData); // Log exercises data
       // Add selected property to each exercise
       const exercisesWithSelection = exercisesData.map((exercise) => ({
         ...exercise,
         selected: false,
       }));
-      console.log("Exercises with selection:", exercisesWithSelection); // Log exercises with selection
       setAvailableExercises(exercisesWithSelection);
     } catch (error) {
       console.error("Error fetching exercises:", error);
@@ -43,17 +41,14 @@ const CreateWorkoutPage = () => {
     const selectedExercises = availableExercises.filter(
       (exercise) => exercise.selected
     );
-    console.log("Selected exercises:", selectedExercises);
 
-    // Construct payload
+    // payload
     const payload = { name, exercises: selectedExercises };
-    console.log("Payload:", payload);
 
     try {
       const response = await withToken("/workouts", "POST", payload);
       console.log("Response:", response);
 
-      // Navigate to workouts page
       navigate("/workouts");
     } catch (error) {
       console.error("Error creating workout:", error);
@@ -71,7 +66,6 @@ const CreateWorkoutPage = () => {
         }
         return exercise;
       });
-      console.log("Updated exercises:", updatedExercises); // Log updated exercises
       return updatedExercises;
     });
   };

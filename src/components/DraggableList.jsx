@@ -8,7 +8,7 @@ import swap from 'lodash-move';
 function DraggableList({ items }) {
   const order = useRef(items.map((_, index) => index));
   const height = 50; // Height of each item
-  const spacing = 10; // Spacing between items
+  const spacing = 10; // Space between items
   const containerHeight = items.length * (height + spacing); // Height of the container
 
   const fn = (order, active = false, originalIndex = 0, curIndex = 0, y = 0) => index => ({
@@ -44,13 +44,13 @@ function DraggableList({ items }) {
           {...bind(i)}
           key={i}
           className="draggable-item"
-          style={{  // Adjust width and other styles here
+          style={{  
             zIndex,
             boxShadow: shadow.to(s => `rgba(0, 0, 0, 0.15) 0px ${s}px ${2 * s}px 0px`),
             y,
             scale,
             position: 'absolute',
-            width: '300px',  // Set your desired width here
+            width: '500px', 
             height: `${height}px`,
             overflow: 'hidden',
           }}
