@@ -27,3 +27,8 @@
 .memberDetails {
   font-size: 1.1rem;
 }
+
+.memberName {
+  font-size: 1.3rem;
+  padding: 2px;
+}
