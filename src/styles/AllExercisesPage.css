@@ -1,16 +1,14 @@
-.exercise-title {
-  margin: 20px;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
 .exercise-page {
   margin: 0 auto;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.exercise-title {
+  margin-top: 10px;
+  text-align: center;
 }
 
 .exercise-list {
@@ -21,6 +19,7 @@
 }
 
 .exercise-item {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +29,6 @@
   max-width: 500px;
   background-color: #52504f;
   border-radius: 20px;
-  padding: 1rem;
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
 }
@@ -50,34 +48,19 @@
   background-color: #807b7b;
 }
 
-.exercise-page h2 {
-  background: transparent;
-  text-align: center;
-}
-
 .exercise-item h2 {
   color: orangered;
   font-weight: bold;
+  background: transparent;
+  text-align: center;
+  padding: 0.5rem;
 }
 
 .exerciseDescription {
   background: transparent;
   text-align: justify;
-  padding: 0.5rem;
-}
-
-link {
-  text-decoration: none;
-}
-
-.setandReps {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  background: transparent;
-  border-radius: 10px;
-  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 .images {
@@ -89,11 +72,69 @@ link {
   justify-content: center;
 }
 
-.exercise-search {
+.exerciseSearch {
   background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+.exerciseSearch input {
+  background: transparent;
+  border-bottom: 3px solid orangered;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.images-container {
+  width: 420px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
   margin-bottom: 1rem;
+}
+
+.images-container img {
+  width: 200px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 20px rgba(247, 241, 241, 0.5);
+}
+.reps-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: transparent;
+}
+
+.reps-container h4 {
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.reps {
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.reps-text {
+  background: transparent;
+}
+
+.reps-text span {
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: italic;
 }

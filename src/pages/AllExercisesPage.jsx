@@ -100,7 +100,7 @@ const AllExercisesPage = () => {
         </div>
       )}
 
-      <div className="exercise-search">
+      <div className="exerciseSearch">
         <input
           type="text"
           placeholder="Search by target muscle"
@@ -129,9 +129,11 @@ const AllExercisesPage = () => {
               }`}
               onClick={() => setSelectedId(currentExercise._id)}
             >
-              <h2>{currentExercise.name.toUpperCase()}</h2>
+              <h2 className="exercise-title">
+                {currentExercise.name.toUpperCase()}
+              </h2>
               <p className="exerciseDescription">
-                {currentExercise.target_muscle}
+                {currentExercise.target_muscle.toUpperCase()}
               </p>
               {selectedId === currentExercise._id && (
                 <>
@@ -139,27 +141,25 @@ const AllExercisesPage = () => {
                     {currentExercise.description}
                   </p>
 
-                  <div className="setsandReps">
-                    <h4>Sets</h4>
-                    <div>
-                      <p>
+                  <div className="reps-container">
+                    <h4>SETS</h4>
+                    <div className="reps">
+                      <p className="reps-text">
                         {currentExercise.sets.map((set, index) => (
-                          <span key={index}>
-                            {set.reps} x {set.weight}
-                          </span>
+                          <span key={index}>{set.reps} x 3</span>
                         ))}
                       </p>
                     </div>
                   </div>
                   <div className="images">
                     {isExpanded[currentExercise._id] && (
-                      <div className="imagescontainer">
+                      <div className="images-container">
                         <img
-                          src={currentExercise["image-1"]}
+                          src={currentExercise["image-2"]}
                           alt={`${currentExercise.name} Image`}
                         />
                         <img
-                          src={currentExercise["image-2"]}
+                          src={currentExercise["image-1"]}
                           alt={`${currentExercise.name} Image`}
                         />
                       </div>
