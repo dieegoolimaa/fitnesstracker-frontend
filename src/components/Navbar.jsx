@@ -47,10 +47,14 @@ const Navbar = () => {
                 </Link>
               </li>
               <div></div>
-              <li className={style.userButton} onClick={handleClick}>
+              <li
+                className={style.userButton}
+                onClick={handleClick}
+                ref={dropdownRef}
+              >
                 USER
                 {dropdownOpen && (
-                  <ul className={style.dropdown} ref={dropdownRef}>
+                  <ul className={style.dropdown}>
                     <div>
                       <li>
                         <Link className={style.link} to="/profile">

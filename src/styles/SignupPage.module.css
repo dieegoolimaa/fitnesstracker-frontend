@@ -51,6 +51,30 @@ label {
   justify-content: center;
 }
 
+.buttonSignup {
+  background-color: white;
+  color: black;
+  border: none;
+  margin: 0px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  font-weight: normal;
+  font-size: 1.1rem;
+}
+
+.buttonSignup:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, orange, orangered);
+  color: white;
+  border: none;
+  margin: 0px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  font-weight: normal;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .formContainer {
     margin-bottom: 30px;

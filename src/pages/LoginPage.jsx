@@ -23,7 +23,7 @@ const LoginPage = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, password }), 
+          body: JSON.stringify({ email, password }),
         }
       );
 
@@ -35,11 +35,11 @@ const LoginPage = () => {
       } else {
         // Get error message from response body
         const { message } = await response.json();
-        setError(message); 
+        setError(message);
       }
     } catch (error) {
       console.error("Failed to log in:", error.message);
-      setError("Failed to log in. Please try again."); 
+      setError("Failed to log in. Please try again.");
     }
   };
 
