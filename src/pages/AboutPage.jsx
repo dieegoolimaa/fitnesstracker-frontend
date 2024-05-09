@@ -7,7 +7,7 @@ import style from "../styles/AboutPage.module.css";
 const AboutPage = () => {
   return (
     <div className={style.aboutPage}>
-      <h1 className={style.title}>About Us</h1>
+      <h1 className={style.title}>ABOUT US</h1>
       <p>
         Welcome to Fitness Tracker, your ultimate fitness companion! Track,
         analyze, and optimize your fitness journey with ease on our intuitive
@@ -20,7 +20,7 @@ const AboutPage = () => {
         personalized training program today and unleash the power of your
         potential with Fitness Tracker! 🏋️‍♂️💪
       </p>
-      <h1 className={style.title}>Team Members</h1>
+      <h1 className={style.title}>TEAM MEMBERS</h1>
       <p>
         We are a team of developers who love to code. Ironhack is our bootcamp.
         We are based in Germany. We hope to see you in other projects.

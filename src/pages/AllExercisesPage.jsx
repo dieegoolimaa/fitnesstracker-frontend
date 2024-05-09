@@ -7,6 +7,7 @@ const AllExercisesPage = () => {
   const [selectedId, setSelectedId] = useState(null);
   const [isExpanded, setIsExpanded] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
+  const [userProfile, setUserProfile] = useState(null); // State to store user profile data
 
   const fetchExercises = async () => {
     try {
@@ -22,12 +23,38 @@ const AllExercisesPage = () => {
         console.log("Failed to fetch exercises:", response.status);
       }
     } catch (error) {
-      console.log("Error fetching exercises:", error);
+      console.error(error);
+    }
+  };
+
+  const fetchUserProfile = async () => {
+    try {
+      const token = localStorage.getItem("authToken"); // Assuming token is stored in localStorage
+      if (!token) return;
+
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/auth/profile`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.ok) {
+        const profileData = await response.json();
+        setUserProfile(profileData);
+      } else {
+        console.error("Error fetching user profile:", response.status);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
   useEffect(() => {
     fetchExercises();
+    fetchUserProfile(); // Fetch profile data on component mount
   }, []);
 
   const handleExpandClick = (id) => {
@@ -51,32 +78,29 @@ const AllExercisesPage = () => {
     };
   }, []);
 
-  useEffect(() => {
-    console.log("Exercises:", exercises);
-  }, [exercises]);
+  useEffect(() => {}, [exercises]);
 
-  useEffect(() => {
-    console.log("Selected ID:", selectedId);
-  }, [selectedId]);
+  useEffect(() => {}, [selectedId]);
 
-  useEffect(() => {
-    console.log("Search term:", searchTerm);
-  }, [searchTerm]);
+  useEffect(() => {}, [searchTerm]);
 
   return (
     <div className="exercise-page">
       <div className="exercise-title">
-        <h1>All Exercises</h1>
+        <h1>EXERCISES</h1>
         <p className="exerciseDescription">
-          Below you will find a list of all exercises available for training.
+          Below you will find a list of all <br />
+          exercises available for training.
         </p>
       </div>
 
-      <div>
-        <Link to="/exercises/new">Create exercise</Link>
-      </div>
+      {userProfile && userProfile.isInstructor && (
+        <div>
+          <Link to="/exercises/new">Create a exercise</Link>
+        </div>
+      )}
 
-      <div className="exercise-search">
+      <div className="exerciseSearch">
         <input
           type="text"
           placeholder="Search by target muscle"
@@ -105,9 +129,11 @@ const AllExercisesPage = () => {
               }`}
               onClick={() => setSelectedId(currentExercise._id)}
             >
-              <h2>{currentExercise.name.toUpperCase()}</h2>
+              <h2 className="exercise-title">
+                {currentExercise.name.toUpperCase()}
+              </h2>
               <p className="exerciseDescription">
-                {currentExercise.target_muscle}
+                {currentExercise.target_muscle.toUpperCase()}
               </p>
               {selectedId === currentExercise._id && (
                 <>
@@ -115,32 +141,33 @@ const AllExercisesPage = () => {
                     {currentExercise.description}
                   </p>
 
-                  <div className="setsandReps">
-                    <h4>Sets</h4>
-                    <div>
-                      <p>
+                  <div className="reps-container">
+                    <h4>SETS</h4>
+                    <div className="reps">
+                      <p className="reps-text">
                         {currentExercise.sets.map((set, index) => (
-                          <span key={index}>
-                            {set.reps} x {set.weight}
-                          </span>
+                          <span key={index}>{set.reps} x 3</span>
                         ))}
                       </p>
                     </div>
                   </div>
                   <div className="images">
-                  {isExpanded[currentExercise._id] && (
-                   <div className="imagescontainer">
-                    <img
-                       src={currentExercise['image-1']} 
-                        alt={`${currentExercise.name} Image`} />
-                   <img
-                   src={currentExercise['image-2']}
-                   alt={`${currentExercise.name} Image`}/>
-                   </div>
-                    )}      
+                    {isExpanded[currentExercise._id] && (
+                      <div className="images-container">
+                        <img
+                          src={currentExercise["image-2"]}
+                          alt={`${currentExercise.name} Image`}
+                        />
+                        <img
+                          src={currentExercise["image-1"]}
+                          alt={`${currentExercise.name} Image`}
+                        />
+                      </div>
+                    )}
                     <button
                       className="expand-button"
-                      onClick={() => handleExpandClick(currentExercise._id)}>
+                      onClick={() => handleExpandClick(currentExercise._id)}
+                    >
                       {isExpanded[currentExercise._id]
                         ? "Hide exercise"
                         : "See exercise"}

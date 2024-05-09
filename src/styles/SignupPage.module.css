@@ -6,7 +6,6 @@
 }
 
 .signupTitle {
-  margin-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -28,7 +27,7 @@ form {
 }
 
 input {
-  margin-top: 10px;
+  margin-top: 5px;
   width: 100%;
   background-color: white;
   color: black;
@@ -53,26 +52,31 @@ label {
 }
 
 .buttonSignup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-decoration: none;
-  margin: 10px;
-  padding: 5px;
-  background-color: transparent;
-  border: 0.5px solid white;
-  border-radius: 20px;
-  width: 100%;
+  background-color: white;
+  color: black;
+  border: none;
+  margin: 0px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  font-weight: normal;
+  font-size: 1.1rem;
 }
 
 .buttonSignup:hover {
-  color: black;
+  cursor: pointer;
+  background: linear-gradient(to right, orange, orangered);
+  color: white;
+  border: none;
+  margin: 0px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  font-weight: normal;
+  font-size: 1.1rem;
   text-decoration: none;
-  margin: 10px;
-  padding: 5px;
-  background-color: rgb(224, 248, 7);
-  border: 0.5px solid white;
-  border-radius: 20px;
-  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    margin-bottom: 30px;
+  }
 }

@@ -1,22 +1,23 @@
 import { useState, useEffect, useContext } from "react";
 import { SessionContext } from "../contexts/SessionContext";
 import style from "../styles/UserProfilePage.module.css";
-
+import PasswordChange from "../components/PasswordChange"; // Importing the PasswordChange component
 const ProfilePage = () => {
-  const { token } = useContext(SessionContext); 
+  const { token } = useContext(SessionContext);
 
   const [userData, setUserData] = useState(null);
+  const [showPasswordChange, setShowPasswordChange] = useState(false); // State to manage the visibility of the password change form
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // Fetch user data from backend 
+        // Fetch user data from backend
         const response = await fetch(
           `${import.meta.env.VITE_API_URL}/auth/profile`,
           {
             method: "GET",
             headers: {
-              Authorization: `Bearer ${token}`, 
+              Authorization: `Bearer ${token}`,
             },
           }
         );
@@ -32,7 +33,17 @@ const ProfilePage = () => {
     };
 
     fetchUserData();
-  }, [token]); 
+  }, [token]);
+
+  const handleShowPasswordChange = () => {
+    if (!showPasswordChange) {
+      setShowPasswordChange(true); // Show the password change form when the user clicks on "Change Password"
+    }
+  };
+
+  const handlePasswordChangeSuccess = () => {
+    setShowPasswordChange(false); // Hide the password change form after successful password change
+  };
 
   return (
     <div className={style.profileContainer}>
@@ -66,13 +77,26 @@ const ProfilePage = () => {
               </li>
               {userData.isInstructor && (
                 <li>
-                  <b>Is Instructor:</b> Yes
+                  <b>Instructor:</b> Yes
                 </li>
               )}
             </ul>
           )}
         </div>
       </div>
+      {/* Render the PasswordChange component only if showPasswordChange is true */}
+      {showPasswordChange && (
+        <PasswordChange onSuccess={handlePasswordChangeSuccess} />
+      )}
+      {/* Button to show the password change form */}
+      {!showPasswordChange && (
+        <button
+          className={style.passwordChangeBtn}
+          onClick={handleShowPasswordChange}
+        >
+          Change Password
+        </button>
+      )}
     </div>
   );
 };

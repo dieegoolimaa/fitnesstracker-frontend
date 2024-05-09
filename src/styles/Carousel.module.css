@@ -1,13 +1,25 @@
 .carousel {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  overflow: hidden;
+  /* Base styles */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center image vertically */
+  justify-content: center; /* Center image horizontally */
+  overflow: hidden; /* Optional to hide overflowing content */
 }
-
 .carousel img {
   object-fit: cover;
   width: 100%;
-  height: 100%;
+  height: 100%; /* Allow height to adjust */
   transition: transform 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    height: auto;
+  }
+
+  .carousel img {
+    margin-top: 0px;
+    width: 100%;
+    object-fit: contain;
+  }
 }

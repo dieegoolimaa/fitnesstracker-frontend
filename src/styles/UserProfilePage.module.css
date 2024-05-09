@@ -24,3 +24,31 @@
   box-shadow: 3px 3px 20px rgba(247, 241, 241, 0.5);
   padding: 20px;
 }
+
+.passwordChangeBtn {
+  font-family: poppins, sans-serif;
+  color: black;
+  border: none;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.passwordChangeBtn:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, orange, orangered);
+  font-family: poppins, sans-serif;
+  color: white;
+  border: none;
+  margin-top: 30px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  margin-bottom: 30px;
+}

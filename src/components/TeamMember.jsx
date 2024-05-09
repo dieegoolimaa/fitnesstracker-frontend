@@ -7,7 +7,7 @@ const TeamMember = ({ name, role, github, linkedin, image }) => {
         <img className={style.memberImage} src={image} />
       </div>
       <div className={style.memberDetails}>
-        <h3>{name}</h3>
+        <h3 className={style.memberName}>{name}</h3>
         <p>
           <strong>Role:</strong> {role}
         </p>

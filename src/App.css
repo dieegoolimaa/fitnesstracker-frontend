@@ -16,10 +16,12 @@ body {
 button {
   background-color: white;
   color: black;
+  border: none;
+  margin: 0px;
   padding: 5px 7px;
-  border: 0.5px solid white;
   border-radius: 10px;
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
 button:hover {
@@ -27,19 +29,25 @@ button:hover {
   background: linear-gradient(to right, orange, orangered);
   color: white;
   border: none;
+  margin: 0px;
   padding: 5px 7px;
   border-radius: 10px;
   font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  text-decoration: none;
 }
 
 a {
-  text-decoration: none;
   color: white;
   border: none;
+  margin: 0px;
   padding: 5px 7px;
   border-radius: 10px;
   font-weight: bold;
+  font-size: 1.1rem;
   margin-top: 5px;
+  text-decoration: none;
 }
 
 a:hover {
@@ -47,49 +55,38 @@ a:hover {
   background: linear-gradient(to right, orange, orangered);
   color: white;
   border: none;
+  margin: 0px;
   padding: 5px 7px;
   border-radius: 10px;
   font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  text-decoration: none;
+  text-align: left;
 }
 
 link {
-  text-decoration: none;
   color: white;
   border: none;
+  margin: 0px;
   padding: 5px 7px;
   border-radius: 10px;
   font-weight: bold;
+  font-size: 1.1rem;
   margin-top: 5px;
+  text-decoration: none;
 }
 
 link:hover {
   cursor: pointer;
   background: linear-gradient(to right, orange, orangered);
-  color: white;
   border: none;
+  margin: 0px;
   padding: 5px 7px;
   border-radius: 10px;
   font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  text-decoration: none;
+  text-align: left;
 }
-
-/* 
-.customButton {
-  background: linear-gradient(45deg, orange, red);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px; 
-}
-
-/* .customButton:hover {
-  opacity: 0.8;
-  background: linear-gradient(45deg, orange, #ff0000);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-} */

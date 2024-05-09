@@ -1,14 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .logoContainer {
   display: flex;
   align-items: center;
   gap: 15px;
 }
+
 .navbarContainer {
   display: flex;
   justify-content: space-between;
@@ -16,27 +11,25 @@
   padding: 20px;
 }
 
-.navbarContainer a,
-li {
-  margin: 2px 5px;
-  font-weight: bold;
+.navbarItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navbarContainer li {
-  cursor: pointer;
-}
-
-.navbarContainer li:hover {
-  color: orangered;
+.navbarItems li {
+  list-style: none;
+  display: flex;
 }
 
 .navbarContainer ul {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   z-index: 1;
   list-style: none;
-  padding: 0;
+  padding: 5px 7px;
 }
 
 .title {
@@ -44,27 +37,51 @@ li {
 }
 
 .logo {
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
-.link {
-  text-decoration: none;
-}
-
 .dropdown {
+  background: tran;
   display: none;
   position: absolute;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 10px;
-  width: 100px;
-  height: 110px;
+  justify-content: center;
+  margin-top: 50px;
+  width: 130px;
+  height: 140px;
   border-radius: 5px;
   box-shadow: 3px 3px 20px rgba(247, 241, 241, 0.5);
-  border: 1px solid white;
+  border: 0.5px solid white;
+}
+
+.userButton {
+  color: white;
+  border: none;
+  margin: 0px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.userButton:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, orange, orangered);
+  color: white;
+  border: none;
+  margin: 0px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  text-decoration: none;
+  text-align: left;
 }
