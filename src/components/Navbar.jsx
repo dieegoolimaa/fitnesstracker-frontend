@@ -3,6 +3,7 @@ import logo from "../assets/training.png";
 import { Link } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext.jsx";
 import style from "../styles/Navbar.module.css";
+import PrivateRoute from './PrivateRoute';
 
 const Navbar = () => {
   const { token, setToken } = useContext(SessionContext);
@@ -60,7 +61,14 @@ const Navbar = () => {
                         <Link className={style.link} to="/profile">
                           PROFILE
                         </Link>
-                      </li>
+                        </li>
+                        <li>
+                      <PrivateRoute>
+                        <Link className={style.link} to="/user-details">
+                          USERS Details
+                        </Link>
+                      </PrivateRoute>
+                    </li>
                       <li>
                         <Link className={style.link} to="/workouts">
                           WORKOUT
@@ -118,3 +126,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
