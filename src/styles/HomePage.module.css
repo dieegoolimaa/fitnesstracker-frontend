@@ -1,15 +1,10 @@
 .title {
   font-size: 2rem;
   font-family: "Montserrat", sans-serif;
-  margin: 10px 0;
   text-align: center;
   background: linear-gradient(to right, orange, orangered);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   color: #fff; /* White text */
-}
-
-.title br {
-  display: none;
 }
 
 @media (max-width: 768px) {

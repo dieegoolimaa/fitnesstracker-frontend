@@ -12,11 +12,7 @@ const images = [image1, image2, image3, image4, image5, image6];
 function HomePage() {
   return (
     <div className={style.homePage}>
-      <h1 className={style.title}>
-        LEVEL UP YOUR LIFE
-        <br />
-        WITH WORKOUTS!
-      </h1>
+      <h1 className={style.title}>LEVEL UP YOUR LIFE WITH WORKOUTS!</h1>
       <Carousel images={images} interval={3500} />
     </div>
   );
