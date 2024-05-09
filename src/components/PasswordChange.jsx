@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from "../styles/PasswordChange.module.css";
 
 const PasswordChange = ({ onSuccess }) => {
   const [oldPassword, setOldPassword] = useState("");
@@ -15,14 +16,17 @@ const PasswordChange = ({ onSuccess }) => {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/change-password`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-        body: JSON.stringify({ oldPassword, newPassword }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/auth/change-password`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+          body: JSON.stringify({ oldPassword, newPassword }),
+        }
+      );
 
       if (response.status === 200) {
         setError(null);
@@ -41,10 +45,10 @@ const PasswordChange = ({ onSuccess }) => {
   };
 
   return (
-    <div>
+    <div className={style.passwordChangeContainer}>
       <h2>Change Password</h2>
-      <form onSubmit={handleChangePassword}>
-        <div>
+      <form className={style.formContainer} onSubmit={handleChangePassword}>
+        <div className={style.inputContainer}>
           <label>Old Password:</label>
           <input
             type="password"
@@ -53,7 +57,7 @@ const PasswordChange = ({ onSuccess }) => {
             required
           />
         </div>
-        <div>
+        <div className={style.inputContainer}>
           <label>New Password:</label>
           <input
             type="password"
@@ -62,7 +66,7 @@ const PasswordChange = ({ onSuccess }) => {
             required
           />
         </div>
-        <div>
+        <div className={style.inputContainer}>
           <label>Confirm New Password:</label>
           <input
             type="password"
@@ -72,11 +76,12 @@ const PasswordChange = ({ onSuccess }) => {
           />
         </div>
         {error && <p className="error-message">{error}</p>}
-        <button type="submit">Change Password</button>
+        <button className={style.button} type="submit">
+          Change Password
+        </button>
       </form>
     </div>
   );
 };
 
 export default PasswordChange;
-
