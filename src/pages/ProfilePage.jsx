@@ -67,10 +67,10 @@ const ProfilePage = () => {
                 <b>Gender:</b> {userData.gender}
               </li>
               <li>
-                <b>Height:</b> {userData.height}
+                <b>Height:</b> {userData.height}m
               </li>
               <li>
-                <b>Weight:</b> {userData.weight}
+                <b>Weight:</b> {userData.weight}kg
               </li>
               <li>
                 <b>Workout Frequency:</b> {userData.workoutFrequency}

@@ -3,7 +3,7 @@ import logo from "../assets/logoFitness.png";
 import { Link } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext.jsx";
 import style from "../styles/Navbar.module.css";
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from "./PrivateRoute";
 
 const Navbar = () => {
   const { token, setToken } = useContext(SessionContext);
@@ -59,19 +59,19 @@ const Navbar = () => {
                     <div>
                       <li>
                         <Link className={style.link} to="/profile">
-                          PROFILE
+                          Profile
                         </Link>
-                        </li>
-                        <li>
-                      <PrivateRoute>
-                        <Link className={style.link} to="/user-details">
-                          USERS Details
-                        </Link>
-                      </PrivateRoute>
-                    </li>
+                      </li>
+                      <li>
+                        <PrivateRoute>
+                          <Link className={style.link} to="/user-details">
+                            Admin
+                          </Link>
+                        </PrivateRoute>
+                      </li>
                       <li>
                         <Link className={style.link} to="/workouts">
-                          WORKOUT
+                          Workout
                         </Link>
                       </li>
                       <li>
@@ -80,7 +80,7 @@ const Navbar = () => {
                           to="/"
                           onClick={handleLogout}
                         >
-                          LOGOUT
+                          Logout
                         </Link>
                       </li>
                     </div>
@@ -126,4 +126,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
