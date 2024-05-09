@@ -10,6 +10,7 @@ import AboutPage from "./pages/AboutPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import WorkoutPage from "./pages/WorkoutPage.jsx";
 import CreateWorkoutPage from "./pages/CreateWorkoutPage.jsx";
+import UserDetailsPage from "./pages/UserDetailsPage.jsx";
 import "./App.css";
 
 function App() {
@@ -27,6 +28,15 @@ function App() {
           element={
             <PrivateRoute>
               <ProfilePage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/user-details"
+          element={
+            <PrivateRoute>
+              <UserDetailsPage />
             </PrivateRoute>
           }
         />
