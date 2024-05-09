@@ -1,5 +1,5 @@
 import { useContext, useState, useRef, useEffect } from "react";
-import logo from "../assets/training.png";
+import logo from "../assets/logoFitness.png";
 import { Link } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext.jsx";
 import style from "../styles/Navbar.module.css";
